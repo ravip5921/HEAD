@@ -32,9 +32,13 @@
 
     // Search area for students
     echo "
-    <form method=\"POST\" action=\"search_studentdb.php\" >
-    <input type=\"text\" name=\"semester\" placeholder = \"Enter Semester\">
-    <input type = \"submit\" value =\"Check\">
+
+    <p><h3>Apply to University</h3></p>
+    <form method=\"POST\" action=\"add_application.php\" >
+    <input type=\"text\" name=\"university\" placeholder = \"Enter University\"><br><br>
+    <input type=\"text\" name=\"country\" placeholder = \"Enter Country\"><br><br>
+    <input type=\"text\" name=\"faculty\" placeholder = \"Enter Faculty\"><br><br>
+    <input type = \"submit\" value =\"Apply\">
     </form>";
     ?>
 </body>
