@@ -1,0 +1,138 @@
+:root {
+  --gradient: linear-gradient(90deg, #0fc4f1, #12b3f3e0);
+}
+
+* {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+*::selection {
+  background: #12b3f3e0;
+  color: fffff;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+  width: 1.5rem;
+}
+html::-webkit-scrollbar-track {
+  background: #333;
+}
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(#0fc4f1, #12b3f3e0);
+}
+body {
+  height: 300rem;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 1.5rem 7%;
+  background: var(--gradient);
+  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+}
+
+header .logo {
+  color: white;
+  font-size: 2.5rem;
+  padding-right: 250px;
+}
+header .navbar ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+header .navbar ul li {
+  margin: 0 1rem;
+  display: inline;
+}
+
+header .navbar ul li a {
+  font-size: 2rem;
+  color: white;
+}
+header .navbar ul li a.active,
+header .navbar ul li a:hover {
+  color: darkslategrey;
+}
+
+header #login {
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+}
+
+header #login:hover {
+  color: darkslategray;
+}
+header #menu {
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+/* media queries */
+
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+  header #menu {
+    display: block;
+  }
+
+  header .navbar {
+    position: fixed;
+    top: 6.4rem;
+    left: 0;
+    width: 100%;
+    background: #0fc4f1;
+  }
+  header .navbar ul {
+    flex-flow: column;
+    padding: 2rem 0;
+  }
+  header .navbar ul li {
+    margin: 1.5 rem 0;
+    text-align: center;
+    width: 100%;
+  }
+  header .navbar ul li a {
+    font-size: 2.5rem;
+    display: block;
+  }
+
+  header .navbar ul li a.active,
+  header .navbar ul li a.hover {
+    color: #0fc4f1;
+  }
+
+  .fa-times {
+    transform: rotate(180deg);
+  }
+
+  header .navbar.nav-toggle {
+    top: 6.4rem;
+  }
+}
