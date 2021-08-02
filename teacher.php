@@ -38,9 +38,16 @@
     <br>
     <input type =\"text\" name=\"batch\" placeholder = \"Enter Batch\">
     <br>
-    <input type =\"text\" name=\"department\" placeholder = \"Enter Department\"
+    <input type =\"text\" name=\"department\" placeholder = \"Enter Department\">
     <br>
-    <input type = \"submit\" value =\"Search\">
+    <input type =\"text\" name=\"country\" placeholder = \"Enter Country\">
+    <br>
+    <input type =\"text\" name=\"faculty\" placeholder = \"Enter Faculty\">
+    <br>
+    <input type =\"text\" name=\"university\" placeholder = \"Enter University\">
+    <br>
+    <input type = \"submit\" name=\"search_students\" value =\"Search\">
+    
     </form>";
 
     // Recommendation Letter
