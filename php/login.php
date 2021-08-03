@@ -51,7 +51,7 @@
                 $_SESSION["department"] = $department;
                 // Passing info to profile page
 
-                header("Location:test.php");
+                header("Location: test.php");
                 // header("Location: teacher.php?department=$department&name=$username");
             } else {
                 echo "<br>Login Unsuccessful";
