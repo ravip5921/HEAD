@@ -25,11 +25,11 @@
     $country = $_POST["country"];
 
     echo "$name ,$dob ,$rollno applied for $faculty at $university in $country";
-    $entryQuery = "INSERT INTO university (`name`,`country`,`rollno`,`faculty`) VALUES (`$name`,`$country`,`$rollno`,`$faculty`)";
+    $entryQuery = "INSERT INTO university (`uname`,`country`,`rollno`,`faculty`) VALUES ('$university','$country','$rollno','$faculty')";
 
     $sqldb->query($entryQuery);
     // header("Refresh:0.5; url=student.php");
-    header("url=student.php");
+    header("Refresh:1; url=student.php");
     ?>
 </body>
 

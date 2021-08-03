@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Higher Education Management</title>
+    <!-- google fonts cdn link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome cdn link-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- custom css file link-->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--header section starts-->
+    <header>
+      <div id="menu" class="fas fa-bars"></div>
+      <a href="#" class="logo"><i class="fas fa-user-graduate"></i>LOGO</a>
+      <nav class="navbar">
+        <ul>
+          <li><a class="active" href="Login">Login</a></li>
+          <li><a href="About">about</a></li>
+        </ul>
+      </nav>
+
+      <div id="login" class="fas fa-user-circle" style="font-size: 30px"></div>
+      <form method="POST" action="login.php">
+        <div class="loginbox">
+          <img src="img/user.jpg" class="user" />
+          <h1>Login Here</h1>
+          <h1>Enter Username</h1>
+          <br />
+          <input type="text" name="username" placeholder="Enter Username" />
+          <br />
+          <br />
+          <h1>Enter Password</h1>
+          <br />
+          <input type="password" name="password" placeholder="Enter Password" />
+          <!-- <input type="radio" name="usercat" id="admin" value="admin" />
+                                                  <label for="admin">Administrator</label> -->
+          <input type="submit" name="loginB" value="Log In" />
+        </div>
+        <div>
+          <input
+            type="radio"
+            name="usercat"
+            id="student"
+            value="student"
+            checked
+          />
+          <label for="student">Student</label>
+          <input type="radio" name="usercat" id="teacher" value="teacher" />
+          <label for="teacher">Teacher</label>
+        </div>
+      </form>
+    </header>
+    <!--header section ends-->
+
+    <!-- login form  -->
+
+    <!-- <div class="login-form"> -->
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <!-- jquery cdn link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- custom js file link-->
+    <script src="js/script.js"></script>
+  </body>
+</html>
