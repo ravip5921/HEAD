@@ -79,7 +79,7 @@
         }
 
         if ($_SESSION["userType"] == "teacher") {
-            echo "Hi Teacher";
+            // echo "Hi Teacher";
             echo "<br><button id=\"returnButton\">Return</button>
     <script>
         var btn = document.getElementById('returnButton');

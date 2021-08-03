@@ -29,24 +29,24 @@
         $test = $_SESSION["name"];
         echo "$test";
 
-        echo "
-        <div class=\"MyTextBox\">
-        <input
-          name=\"Password\"
-          type=\"password\"
-          id=\"pw\"
-          label=\"Password\"
-          placeholder=\"Enter Password\"
-        />
-      </div>
-        ";
-        header("Refresh:2; url= teacher.php");
+        //     echo "
+        //     <div class=\"MyTextBox\">
+        //     <input
+        //       name=\"Password\"
+        //       type=\"password\"
+        //       id=\"pw\"
+        //       label=\"Password\"
+        //       placeholder=\"Enter Password\"
+        //     />
+        //   </div>
+        //     ";
+        header("Refresh:0; url= teacher.php");
     } elseif ($_SESSION["userType"] == "student") {
         $dob = $_SESSION["dob"];
         $rollno = $_SESSION["rollno"];
         $name = $_SESSION["name"];
         echo "$dob $rollno $name";
-        header("Refresh:2; url= student.php");
+        header("Refresh:0; url= student.php");
     }
 
     ?>
