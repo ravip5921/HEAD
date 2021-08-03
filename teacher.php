@@ -27,7 +27,7 @@
     $dep = $_SESSION["department"];
     $name = $_SESSION["name"];
     // Teacher info
-    echo "Welcome, $name<br>Department = $dep";
+    echo "Welcome, $name<br>Department :$dep";
 
     // Search area for searching students records
     echo "
@@ -40,6 +40,7 @@
     <br>
     <input type =\"text\" name=\"department\" placeholder = \"Enter Department\">
     <br>
+    <h2>Applied To: </h2>
     <input type =\"text\" name=\"country\" placeholder = \"Enter Country\">
     <br>
     <input type =\"text\" name=\"faculty\" placeholder = \"Enter Faculty\">

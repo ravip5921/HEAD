@@ -60,7 +60,7 @@ header {
 header .logo {
   color: white;
   font-size: 2.5rem;
-  padding-right: 250px;
+  padding-right: 525px;
 }
 header .navbar ul {
   display: flex;
@@ -72,12 +72,14 @@ header .navbar ul {
 header .navbar ul li {
   margin: 0 1rem;
   display: inline;
+  padding-right: 475px;
 }
 
 header .navbar ul li a {
   font-size: 2rem;
   color: white;
 }
+
 header .navbar ul li a.active,
 header .navbar ul li a:hover {
   color: darkslategrey;
