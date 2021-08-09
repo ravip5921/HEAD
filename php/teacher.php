@@ -53,7 +53,9 @@
 
     // Recommendation Letter
     echo "
-    <h2>Recommendation Letter</h2>
+    <h2>Recommendation Letter Requests</h2>
+
+    <p> need to search db and display</p>
     <form method=\"POST\" action=\"recommend_letter.php\" >
     <input type =\"text\" name=\"rollno\" placeholder = \"Enter Roll No.\">
     <br>

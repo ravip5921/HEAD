@@ -38,8 +38,16 @@
     <input type=\"text\" name=\"university\" placeholder = \"Enter University\"><br><br>
     <input type=\"text\" name=\"country\" placeholder = \"Enter Country\"><br><br>
     <input type=\"text\" name=\"faculty\" placeholder = \"Enter Faculty\"><br><br>
+    <h2>Request for Recommendation Letter</h2>
+    <input type=\"text\" name=\"requestR\" placeholder = \"Request to\"><br><br>
     <input type = \"submit\" value =\"Apply\">
     </form>";
+
+    // Display section for student's applications
+    echo "
+    <p>
+    need to search db and display</p>
+    ";
     ?>
 </body>
 
