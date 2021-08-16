@@ -1,4 +1,27 @@
 <?php session_start() ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function activate(element) {
+        alert()
+    }
+
+    function edit(element, column, id) {
+        var value = element.innerText
+        $.ajax({
+            url: 'edit_application.php',
+            type: 'post',
+            data: {
+                value = value,
+                column = column,
+                id = id
+            },
+            success: function(php_result) {
+                console.log(php_result);
+            }
+        })
+    }
+</script>
+
 <html>
 
 <head>
@@ -14,14 +37,20 @@
     <!-- font awesome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- custom css file link-->
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/student.css">
     <!-- <title>Teacher</title> -->
 </head>
 
 <body>
     <h1>Institute of Engineering</h1>
     <h2>Pulchowk Campus</h2>
+
+
+
+
+
     <?php
+    include 'connect_todb.php';
     // $dep = $_GET['department'];
     // $name = $_GET['name'];
     $rollno = $_SESSION["rollno"];
@@ -31,24 +60,105 @@
     echo "Welcome, $name<br>Roll No. = $rollno<br>Date of Birth = $dob";
 
     // Search area for students
-    echo "
-
-    <p><h3>Apply to University</h3></p>
-    <form method=\"POST\" action=\"add_application.php\" >
-    <input type=\"text\" name=\"university\" placeholder = \"Enter University\"><br><br>
-    <input type=\"text\" name=\"country\" placeholder = \"Enter Country\"><br><br>
-    <input type=\"text\" name=\"faculty\" placeholder = \"Enter Faculty\"><br><br>
-    <h2>Request for Recommendation Letter</h2>
-    <input type=\"text\" name=\"requestR\" placeholder = \"Request to\"><br><br>
-    <input type = \"submit\" value =\"Apply\">
-    </form>";
-
-    // Display section for student's applications
-    echo "
-    <p>
-    need to search db and display</p>
-    ";
     ?>
+
+    <p>
+    <h3>Enter Application details</h3>
+    </p>
+    <script>
+        function isEmpty(element) {
+            var val = element.innerText
+            if (val == "")
+                return true
+            return false
+        }
+
+        function checkVals() {
+            if (isEmpty("u") && isEmpty("c") && isEmpty("f")) {
+                alert()
+            }
+        }
+    </script>
+    <form method="POST" action="add_application.php">
+        <input type="text" id="u" name="university" placeholder="University"><br><br>
+        <input type="text" id="c" name="country" placeholder="Country"><br><br>
+        <input type="text" id="f" name="faculty" placeholder="Faculty"><br><br>
+        <input type="text" name="status" placeholder="Application Status"><br><br>
+
+        <h2>Request for Recommendation Letter</h2>
+        <input type="text" name="requestR" placeholder="Request to"><br><br>
+        <input type="submit" value="Add Application" onclick="checkVals()">
+    </form>
+
+    <?php
+    // Display section for student's applications
+    if (!$sqldb->select_db('higherEducationdb')) {
+        die("not connected to database");
+    }
+    $sn = 1;
+    $applicationQuery = "SELECT uname,country,faculty,status,id FROM university WHERE rollno='$rollno'";
+    if ($vals = $sqldb->query($applicationQuery)) {
+
+    ?>
+        <table>
+            <tr>
+                <th>S.N.</th>
+                <th>University</th>
+                <th>Country</th>
+                <th>Faculty</th>
+                <th>Status</th>
+            </tr>
+            <?php
+            if (mysqli_num_rows($vals) > 0) {
+
+                while ($vals_row = mysqli_fetch_assoc($vals)) {
+                    $unameT = $vals_row['uname'];
+                    $countryT = $vals_row['country'];
+                    $facultyT = $vals_row['faculty'];
+                    $statusT = $vals_row['status'];
+                    $id = md5($vals_row['id']);
+            ?>
+
+                    <tr>
+                        <td>
+                            <div><?php echo $sn; ?></div>
+                        </td>
+                        <td>
+                            <div contenteditable="true" onclick="activate(this)" onblur="edit(this,'uname','<?php echo $id ?>')"><?php echo $unameT; ?></div>
+                        </td>
+                        <td>
+                            <div contenteditable="true" onclick="activate(this)" onblur="edit(this,'faculty','<?php echo $id ?>')"><?php echo $facultyT; ?></div>
+                        </td>
+                        <td>
+                            <div contenteditable="true" onclick="activate(this)" onblur="edit(this,'country','<?php echo $id ?>')"><?php echo $countryT; ?></div>
+                        </td>
+                        <td>
+                            <div contenteditable="true" onclick="activate(this)" onblur="edit(this,'status','<?php echo $id ?>')"><?php echo $statusT; ?></div>
+                        </td>
+
+
+                    </tr>
+        <?php
+                    $sn = $sn + 1;
+                }
+
+                echo "</table>";
+            }
+        } else {
+            echo "<br>Error running query";
+        }
+
+        ?>
+
+        <!-- <script>
+        var btn = document.getElementById('editA.sn');
+        btn.addEventListener('click', edit(this));
+    </script> -->
 </body>
 
 </html>
+
+
+<!-- ALTER TABLE tableName ADD id MEDIUMINT NOT NULL AUTO_INCREMENT KEY -->
+
+<!-- ALTER TABLE university DROP COLUMN id -->

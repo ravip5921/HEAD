@@ -14,7 +14,7 @@
     <!-- font awesome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- custom css file link-->
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/teacher.css">
     <!-- <title>Teacher</title> -->
 </head>
 
@@ -22,12 +22,15 @@
     <h1>Institute of Engineering</h1>
     <h2>Pulchowk Campus</h2>
     <?php
+    include 'connect_todb.php';
+
+
     // $dep = $_GET['department'];
     // $name = $_GET['name'];
     $dep = $_SESSION["department"];
     $name = $_SESSION["name"];
     // Teacher info
-    echo "Welcome, $name<br>Department :$dep";
+    echo "<br>Welcome, $name<br>Department :$dep";
 
     // Search area for searching students records
     echo "
@@ -53,10 +56,49 @@
 
     // Recommendation Letter
     echo "
-    <h2>Recommendation Letter Requests</h2>
+    <h2>Recommendation Letter Requests</h2>";
 
-    <p> need to search db and display</p>
-    <form method=\"POST\" action=\"recommend_letter.php\" >
+    if (!$sqldb->select_db('higherEducationdb')) {
+        die("not connected to database");
+    }
+    $name = $_SESSION['name'];
+    $sn = 1;
+    $tableQuery = "SELECT rollno,uname,country,faculty FROM university WHERE recommReq='$name' AND status!='approved'";
+    if ($vals = $sqldb->query($tableQuery)) {
+        echo "<table>
+        <tr>
+        <th>S.N.</th>
+        <th>Roll no</th>
+        <th>University</th>
+        <th>Country</th>
+        <th>Faculty</th>
+        </tr>";
+        if (mysqli_num_rows($vals) > 0) {
+
+            while ($vals_row = mysqli_fetch_assoc($vals)) {
+                $rollnoT = $vals_row['rollno'];
+                $unameT = $vals_row['uname'];
+                $countryT = $vals_row['country'];
+                $facultyT = $vals_row['faculty'];
+                echo "
+                <tr>
+                <td>$sn</td>
+                <td>$rollnoT</td>
+                <td>$unameT</td>
+                <td>$countryT</td>
+                <td>$facultyT</td>
+                </tr>";
+                $sn = $sn + 1;
+            }
+        }
+    } else {
+        echo "<br>Error running query";
+    }
+
+
+    ?>
+    <?php
+    echo "<form method=\"POST\" action=\"recommend_letter.php\" >
     <input type =\"text\" name=\"rollno\" placeholder = \"Enter Roll No.\">
     <br>
     <input type = \"submit\" value =\"Generate Letter\">

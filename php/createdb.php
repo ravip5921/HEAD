@@ -18,7 +18,7 @@ if ($sqldb->query($createtable)) {
 } else {
     die("Couldn\'t create table teacher");
 }
-$createtable = "CREATE TABLE university (uname varchar(100),country varchar(50),rollno varchar(9),faculty varchar(100))";
+$createtable = "CREATE TABLE university (uname varchar(100),country varchar(50),rollno varchar(9),faculty varchar(100), recommReq varchar(30),status varchar(30))";
 if ($sqldb->query($createtable)) {
     echo "<p>Created table university";
 } else {
