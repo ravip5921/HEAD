@@ -1,30 +1,10 @@
 <?php session_start() ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    function activate(element) {
-        alert()
-    }
-
-    function edit(element, column, id) {
-        var value = element.innerText
-        $.ajax({
-            url: 'edit_application.php',
-            type: 'post',
-            data: {
-                value = value,
-                column = column,
-                id = id
-            },
-            success: function(php_result) {
-                console.log(php_result);
-            }
-        })
-    }
-</script>
 
 <html>
 
 <head>
+    <script src="../js/a.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +17,8 @@
     <!-- font awesome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- custom css file link-->
-    <link rel="stylesheet" href="../css/student.css">
+    <!-- <link rel="stylesheet" href="../css/student.css"> -->
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
     <!-- <title>Teacher</title> -->
 </head>
 
@@ -100,9 +81,50 @@
     if ($vals = $sqldb->query($applicationQuery)) {
 
     ?>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+
+            td,
+            th {
+                padding: 5px;
+                width: 200px;
+                outline: none;
+                border: 1px solid #ccc;
+            }
+
+            th {
+                background: #333;
+                color: white
+            }
+
+            tr:nth-child(odd) {
+                background: #ddd;
+                ;
+            }
+
+            div {
+                outline: none;
+            }
+
+            .activate {
+                background: white;
+                border-top: 1px solid #333;
+                border-left: 1px solid #333;
+                border-right: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                padding: 2px;
+            }
+
+            .processing {
+                background: url('../img/loader.gif') no-repeat right;
+                background-size: contain;
+            }
+        </style>
         <table>
             <tr>
-                <th>S.N.</th>
+                <!-- <th>S.N.</th> -->
                 <th>University</th>
                 <th>Country</th>
                 <th>Faculty</th>
@@ -120,20 +142,22 @@
             ?>
 
                     <tr>
+                        <!-- <td>
+                            <div>
+                                php echo $sn
+                            </div>
+                        </td> -->
                         <td>
-                            <div><?php echo $sn; ?></div>
+                            <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'uname','<?php echo $id ?>')"><?php echo $unameT; ?></div>
                         </td>
                         <td>
-                            <div contenteditable="true" onclick="activate(this)" onblur="edit(this,'uname','<?php echo $id ?>')"><?php echo $unameT; ?></div>
+                            <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'faculty','<?php echo $id ?>')"><?php echo $facultyT; ?></div>
                         </td>
                         <td>
-                            <div contenteditable="true" onclick="activate(this)" onblur="edit(this,'faculty','<?php echo $id ?>')"><?php echo $facultyT; ?></div>
+                            <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'country','<?php echo $id ?>')"><?php echo $countryT; ?></div>
                         </td>
                         <td>
-                            <div contenteditable="true" onclick="activate(this)" onblur="edit(this,'country','<?php echo $id ?>')"><?php echo $countryT; ?></div>
-                        </td>
-                        <td>
-                            <div contenteditable="true" onclick="activate(this)" onblur="edit(this,'status','<?php echo $id ?>')"><?php echo $statusT; ?></div>
+                            <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'status','<?php echo $id ?>')"><?php echo $statusT; ?></div>
                         </td>
 
 
