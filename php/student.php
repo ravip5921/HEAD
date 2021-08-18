@@ -17,7 +17,7 @@
     <!-- font awesome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- custom css file link-->
-    <!-- <link rel="stylesheet" href="../css/student.css"> -->
+    <link rel="stylesheet" href="../css/student.css">
     <link rel="stylesheet" type="text/css" href="mystyle.css">
     <!-- <title>Teacher</title> -->
 </head>
@@ -81,47 +81,6 @@
     if ($vals = $sqldb->query($applicationQuery)) {
 
     ?>
-        <style>
-            table {
-                border-collapse: collapse;
-            }
-
-            td,
-            th {
-                padding: 5px;
-                width: 200px;
-                outline: none;
-                border: 1px solid #ccc;
-            }
-
-            th {
-                background: #333;
-                color: white
-            }
-
-            tr:nth-child(odd) {
-                background: #ddd;
-                ;
-            }
-
-            div {
-                outline: none;
-            }
-
-            .activate {
-                background: white;
-                border-top: 1px solid #333;
-                border-left: 1px solid #333;
-                border-right: 1px solid #ccc;
-                border-bottom: 1px solid #ccc;
-                padding: 2px;
-            }
-
-            .processing {
-                background: url('../img/loader.gif') no-repeat right;
-                background-size: contain;
-            }
-        </style>
         <table>
             <tr>
                 <!-- <th>S.N.</th> -->
