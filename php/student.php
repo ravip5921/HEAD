@@ -17,58 +17,209 @@
     <!-- font awesome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- custom css file link-->
-    <link rel="stylesheet" href="../css/student.css">
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
-    <!-- <title>Teacher</title> -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../css/student.css"> -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url(../img/photo-1590579491624-f98f36d4c763.jpg);
+            background-size: 2000px;
+            height: 600px;
+            background-position: center;
+            font-family: sans-serif;
+            height: 300rem;
+        }
+
+        /******** HEADER ********/
+        .header {
+            color: darkred;
+            background-color: lightblue;
+        }
+
+        .header h1 {
+            height: 45;
+            width: 400;
+            margin-left: 500;
+        }
+
+        .header h2 {
+            height: 45;
+            width: 400;
+            margin-left: 580;
+        }
+
+        .header div form.logout {
+            /* background-color: cadetblue; */
+            width: 50px;
+
+            margin-left: 1355px;
+        }
+
+        /********** HEADER END *************/
+        .welcome_part {
+            padding: 20;
+            height: 150;
+            background-color: burlywood;
+        }
+
+        .application-details {
+            margin-top: 40;
+            margin-left: 20;
+            margin-bottom: 20;
+
+        }
+
+        .application-details h3 {
+            width: 220;
+            background-color: cadetblue;
+        }
+
+        /********** FORM **************/
+        form {
+            margin-left: 20;
+        }
+
+        form h3 {
+            text-decoration: underline;
+            width: 500;
+            height: 30;
+        }
+
+        .form-row {
+            margin: 0;
+        }
+
+        .form-col {
+            margin: 0;
+        }
+
+        .form-col h3 {
+            width: 327px;
+            background-color: cadetblue;
+        }
+
+        form input {
+            margin-bottom: 10;
+            padding: 0;
+            height: 30;
+            width: 130;
+        }
+
+        /***** TABLE  **********/
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            padding: 5px;
+            width: 200px;
+            outline: none;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background: #333;
+            color: white;
+        }
+
+        tr:nth-child(odd) {
+            background: #ddd;
+        }
+
+        tr:nth-child(even) {
+            background: #ccc;
+        }
+
+        div {
+            outline: none;
+        }
+
+        .activate {
+            background: white;
+            border-top: 1px solid #333;
+            border-left: 1px solid #333;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 2px;
+        }
+
+        .processing {
+            background: url("../img/loader.gif") no-repeat right;
+            background-size: contain;
+        }
+    </style>
+
+
 </head>
+<!--  *********************************************   HEAD END   ************************************************************************** -->
 
 <body>
-    <h1>Institute of Engineering</h1>
-    <h2>Pulchowk Campus</h2>
+    <div class="header">
+        <h1>Institute of Engineering</h1>
+        <h2>Pulchowk Campus</h2>
+        <div>
+            <form class="logout" action="logout.php">
+                <input type="submit" value="Log Out">
+            </form>
+        </div>
+    </div>
+
+    <div class="welcome_part">
+        <?php
+        include 'connect_todb.php';
+        // $dep = $_GET['department'];
+        // $name = $_GET['name'];
+        $rollno = $_SESSION["rollno"];
+        $name = $_SESSION["name"];
+        $dob = $_SESSION["dob"];
+
+        // Teacher info
+        ?>
+        <br>Welcome, <?php echo "$name"; ?>
+        <br><br>Roll No. : <?php echo "$rollno"; ?>
+        <br><br>Date of Birth : <?php echo "$dob"; ?>
+
+        <!-- Search area for students -->
+
+    </div>
+    <div class="application-details">
+        <h3>Enter Application details</h3>
+    </div>
 
 
-
-
-
-    <?php
-    include 'connect_todb.php';
-    // $dep = $_GET['department'];
-    // $name = $_GET['name'];
-    $rollno = $_SESSION["rollno"];
-    $name = $_SESSION["name"];
-    $dob = $_SESSION["dob"];
-    // Teacher info
-    echo "Welcome, $name<br>Roll No. = $rollno<br>Date of Birth = $dob";
-
-    // Search area for students
-    ?>
-
-    <p>
-    <h3>Enter Application details</h3>
-    </p>
-    <script>
-        function isEmpty(element) {
-            var val = element.innerText
-            if (val == "")
-                return true
-            return false
-        }
-
-        function checkVals() {
-            if (isEmpty("u") && isEmpty("c") && isEmpty("f")) {
-                alert()
-            }
-        }
-    </script>
     <form method="POST" action="add_application.php">
-        <input type="text" id="u" name="university" placeholder="University"><br><br>
-        <input type="text" id="c" name="country" placeholder="Country"><br><br>
-        <input type="text" id="f" name="faculty" placeholder="Faculty"><br><br>
-        <input type="text" name="status" placeholder="Application Status"><br><br>
-
-        <h2>Request for Recommendation Letter</h2>
-        <input type="text" name="requestR" placeholder="Request to"><br><br>
-        <input type="submit" value="Add Application" onclick="checkVals()">
+        <div class="form-row">
+            <input type="text" id="u" name="university" placeholder="University">
+        </div>
+        <div class="form-row">
+            <div clas="form-col ">
+                <input type="text" id="c" name="country" placeholder="Country">
+            </div>
+            <div class="form-col">
+                <input type="text" id="f" name="faculty" placeholder="Faculty">
+            </div>
+        </div>
+        <div clas="form-row">
+            <input type="text" name="status" placeholder="Application Status">
+        </div>
+        <div class="form-row">
+            <div class="form-col ">
+                <h3>Request for Recommendation Letter</h3>
+            </div>
+            <div class="form-col ">
+                <input type="text" name="requestR" placeholder="Request to">
+            </div>
+        </div>
+        <div class="form-row">
+            <input type="submit" value="Add Application">
+        </div>
     </form>
 
     <?php
@@ -81,6 +232,7 @@
     if ($vals = $sqldb->query($applicationQuery)) {
 
     ?>
+
         <table>
             <tr>
                 <!-- <th>S.N.</th> -->
@@ -133,10 +285,7 @@
 
         ?>
 
-        <!-- <script>
-        var btn = document.getElementById('editA.sn');
-        btn.addEventListener('click', edit(this));
-    </script> -->
+        </table>
 </body>
 
 </html>

@@ -11,7 +11,7 @@
     }
 </script>
 <style>
-    .vis {
+    .visi {
         display: none
     }
 
@@ -41,8 +41,16 @@
 </head>
 
 <body>
-    <h1>Institute of Engineering</h1>
-    <h2>Pulchowk Campus</h2>
+    <div>
+        <h1>Institute of Engineering</h1>
+        <h2>Pulchowk Campus</h2>
+        <div>
+            <form action="logout.php">
+                <input type="submit" value="Log Out">
+            </form>
+        </div>
+    </div>
+
     <?php
     include 'connect_todb.php';
 
@@ -97,11 +105,11 @@
         ?>
 
 
-                <div id="show_hide" class="visi">
+                <div>
                     <button onclick="displayToggle(this)">
                         <li><?php echo "$rollnoT"; ?></li>
                     </button>
-                    <div>
+                    <div class="visi">
                         <table>
                             <tr>
                                 <th>S.N.</th>
