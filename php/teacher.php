@@ -1,8 +1,8 @@
 <?php session_start() ?>
 <html>
 <script>
-    function displayToggle() {
-        var x = document.getElementById("show_hide");
+    function displayToggle(element) {
+        var x = element.nextElementSibling;
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
@@ -95,60 +95,62 @@
                 $rollnoT = $vals_row['rollno'];
 
         ?>
-                <button onclick="displayToggle()">
-                    <li><?php echo "$rollnoT"; ?></li>
-                </button>
+
 
                 <div id="show_hide" class="visi">
-                    <table>
-                        <tr>
-                            <th>S.N.</th>
-                            <th>University</th>
-                            <th>Country</th>
-                            <th>Faculty</th>
-                        </tr>
+                    <button onclick="displayToggle(this)">
+                        <li><?php echo "$rollnoT"; ?></li>
+                    </button>
+                    <div>
+                        <table>
+                            <tr>
+                                <th>S.N.</th>
+                                <th>University</th>
+                                <th>Country</th>
+                                <th>Faculty</th>
+                            </tr>
 
-                        <?php
-                        $rollnoT = $vals_row['rollno'];
-                        $tableQuery = "SELECT uname,country,faculty FROM university WHERE rollno = '$rollnoT' AND recommReq='$name' AND status!='approved'";
+                            <?php
+                            $rollnoT = $vals_row['rollno'];
+                            $tableQuery = "SELECT uname,country,faculty FROM university WHERE rollno = '$rollnoT' AND recommReq='$name' AND status!='approved'";
 
-                        if ($valsI = $sqldb->query($tableQuery)) {
+                            if ($valsI = $sqldb->query($tableQuery)) {
 
-                            if (mysqli_num_rows($valsI) > 0) {
+                                if (mysqli_num_rows($valsI) > 0) {
 
-                                while ($valsI_row = mysqli_fetch_assoc($valsI)) {
-                                    $unameT = $valsI_row['uname'];
-                                    $countryT = $valsI_row['country'];
-                                    $facultyT = $valsI_row['faculty'];
-                        ?>
-                                    <tr>
-                                        <td><?php echo "$sn"; ?></td>
-                                        <td><?php echo "$unameT"; ?></td>
-                                        <td><?php echo "$countryT"; ?></td>
-                                        <td><?php echo "$facultyT"; ?></td>
-                                    </tr>
-            <?php
-                                    $sn = $sn + 1;
+                                    while ($valsI_row = mysqli_fetch_assoc($valsI)) {
+                                        $unameT = $valsI_row['uname'];
+                                        $countryT = $valsI_row['country'];
+                                        $facultyT = $valsI_row['faculty'];
+                            ?>
+                                        <tr>
+                                            <td><?php echo "$sn"; ?></td>
+                                            <td><?php echo "$unameT"; ?></td>
+                                            <td><?php echo "$countryT"; ?></td>
+                                            <td><?php echo "$facultyT"; ?></td>
+                                        </tr>
+                <?php
+                                        $sn = $sn + 1;
+                                    }
                                 }
+                                echo "</table></div></div>";
+                            } else {
+                                echo "records not found for $rollnoT";
                             }
-                            echo "</table></div>";
-                        } else {
-                            echo "records not found for $rollnoT";
                         }
+                        echo "</ol>";
                     }
-                    echo "</ol>";
+                } else {
+                    echo "<br>Error running query";
                 }
-            } else {
-                echo "<br>Error running query";
-            }
 
-            echo "<form method=\"POST\" action=\"recommend_letter.php\" >
+                echo "<form method=\"POST\" action=\"recommend_letter.php\" >
     <input type =\"text\" name=\"rollno\" placeholder = \"Enter Roll No.\">
     <br>
     <input type = \"submit\" value =\"Generate Letter\">
     </form>
     ";
-            ?>
+                ?>
 </body>
 
 </html>
