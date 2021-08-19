@@ -5,9 +5,6 @@
 }
 
 body {
-  /* background: url(../img/studentBackground.jpg);*/
-  background-size: cover;
-  height: 100vh;
   background-position: center;
   font-family: sans-serif;
   color: black;
@@ -17,13 +14,12 @@ body {
 .header {
   color: whitesmoke;
   background-color: maroon;
-  height: 150;
+  height: 170;
 }
 
 .header h1 {
   height: 45;
   width: 400;
-  /*margin-left: 500;*/
 }
 
 .header h2 {
@@ -39,9 +35,12 @@ body {
 
 .logout {
   width: 50px;
-  margin: 30;
-  margin-left: 60vh;
-  margin-top: 50;
+  margin-left: 15%;
+  margin-top: 30;
+}
+
+.change_p {
+  margin-top: 20;
 }
 
 /********** HEADER END *************/

@@ -34,10 +34,8 @@
         <div>
             <form class="logout form-group col-md-4" action="logout.php">
                 <input class=" btn btn-primary btn-lg float-right" type="submit" value="Log Out">
+                <a class ="btn btn-primary btn-lg active change_p" href="changePassword.php">Change Password</a>
             </form>
-        </div>
-        <div>
-            <a href="changePassword.php">Change Password</a>
         </div>
     </div>
     <div class="bg">
