@@ -37,131 +37,176 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- custom css file link-->
     <!-- <link rel="stylesheet" href="../css/teacher.css"> -->
+    <style>
+        <?php include '../css/bootstrap.min.css'; ?><?php include '../css/teacher.css'; ?>
+    </style>
+
     <!-- <title>Teacher</title> -->
 </head>
 
 <body>
-    <div>
-        <h1>Institute of Engineering</h1>
-        <h2>Pulchowk Campus</h2>
+    <div class="header form-row">
+
+        <div class=" top-text form-group col-md-8">
+            <h1>Institute of Engineering</h1>
+            <h2>Pulchowk Campus</h2>
+        </div>
         <div>
-            <form action="logout.php">
-                <input type="submit" value="Log Out">
+            <form class="logout form-group col-md-4" action="logout.php">
+                <input class=" btn btn-primary btn-lg float-right" type="submit" value="Log Out">
+                <a class="btn btn-primary btn-lg active change_p" href="changePassword.php">Change Password</a>
             </form>
-            <div>
-                <a href="changePassword.php">Change Password</a>
-            </div>
         </div>
     </div>
+    <div class="bg">
+        <div class="welcome_part col-md-8">
+            <?php
+            include 'connect_todb.php';
+            // $dep = $_GET['department'];
+            // $name = $_GET['name'];
+            $dep = $_SESSION["department"];
+            $name = $_SESSION["name"];
+            // Teacher info
+            echo "<br>Welcome, $name<br>Department :$dep";
+            ?>
+            <!-- Search area for searching students records -->
+        </div>
 
-    <?php
-    include 'connect_todb.php';
+        <div class="application-details col-md-10" style="width: 50%; float: left;">
+            <h2>Enter Application details:</h2>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
 
-    // $dep = $_GET['department'];
-    // $name = $_GET['name'];
-    $dep = $_SESSION["department"];
-    $name = $_SESSION["name"];
-    // Teacher info
-    echo "<br>Welcome, $name<br>Department :$dep";
-    ?>
-    <!-- Search area for searching students records -->
+        <form method="POST" action="search_studentdb.php">
+            <div>
+                <div class="form-row1">
+                    <label for="name">name:</label><br>
+                    <input type="text" name="name" id="name" placeholder="Enter Name">
+                </div>
+                <div class="form-row1">
+                    <label for="rollno">rollno:</label><br>
+                    <input type="text" name="rollno" placeholder="Enter Roll No.">
+                </div>
+                <div class="form-row1">
+                    <label for="batch">Country:</label><br>
+                    <input type="text" name="batch" placeholder="Enter Batch">
+                </div>
+                <div class="form-row1">
+                    <label for="department">Country:</label><br>
+                    <input type="text" name="department" placeholder="Enter Department">
+                </div>
+            </div>
+            <div>
+                <h2>Applied To: </h2>
+                <div class="form-row2">
+                    <label for="country">Country:</label><br>
+                    <input type="text" name="country" placeholder="Enter Country">
+                </div>
+                <div class="form-row2">
+                    <label for="faculty">Country:</label><br>
+                    <input type="text" name="faculty" placeholder="Enter Faculty">
+                </div>
+                <div class="form-row2">
+                    <label for="university">Country:</label><br>
+                    <input type="text" name="university" placeholder="Enter University">
+                </div>
+                <div class="form-row2">
+                    <input class="btn btn-primary btn-lg active submitB" type="submit" name="search_students" value="Search">
+                </div>
+            </div>
+        </form>
 
-    <form method="POST" action="search_studentdb.php">
-        <input type="text" name="name" id="name" placeholder="Enter Name">
-        <br>
-        <input type="text" name="rollno" placeholder="Enter Roll No.">
-        <br>
-        <input type="text" name="batch" placeholder="Enter Batch">
-        <br>
-        <input type="text" name="department" placeholder="Enter Department">
-        <br>
-        <h2>Applied To: </h2>
-        <input type="text" name="country" placeholder="Enter Country">
-        <br>
-        <input type="text" name="faculty" placeholder="Enter Faculty">
-        <br>
-        <input type="text" name="university" placeholder="Enter University">
-        <br>
-        <input type="submit" name="search_students" value="Search">
 
-    </form>
-    <?php
-    // Recommendation Letter
-    echo "
-    <h2>Recommendation Letter Requests</h2>";
+        <br>
+        <div class="Letter">
+            <h2>Recommendation Letter Requests</h2>
+        </div>
 
-    if (!$sqldb->select_db('higherEducationdb')) {
-        die("not connected to database");
-    }
-    $name = $_SESSION['name'];
-    $rollnoQuery = "SELECT rollno FROM university GROUP BY rollno HAVING COUNT(id) >=1";
-    if ($vals = $sqldb->query($rollnoQuery)) {
-    ?>
         <?php
-        if (mysqli_num_rows($vals) > 0) {
-            echo "<ol>";
-            while ($vals_row = mysqli_fetch_assoc($vals)) {
-                $sn = 1;
-                $rollnoT = $vals_row['rollno'];
+        // Recommendation Letter//
 
+
+        if (!$sqldb->select_db('higherEducationdb')) {
+            die("not connected to database");
+        }
+        $name = $_SESSION['name'];
+        $rollnoQuery = "SELECT rollno FROM university GROUP BY rollno HAVING COUNT(id) >=1";
+        if ($vals = $sqldb->query($rollnoQuery)) {
         ?>
+            <?php
+            if (mysqli_num_rows($vals) > 0) {
+                echo "<ol>";
+                while ($vals_row = mysqli_fetch_assoc($vals)) {
+                    $sn = 1;
+                    $rollnoT = $vals_row['rollno'];
+
+            ?>
 
 
-                <div>
-                    <button onclick="displayToggle(this)">
-                        <li><?php echo "$rollnoT"; ?></li>
-                    </button>
-                    <div class="visi">
-                        <table>
-                            <tr>
-                                <th>S.N.</th>
-                                <th>University</th>
-                                <th>Country</th>
-                                <th>Faculty</th>
-                            </tr>
 
-                            <?php
-                            $rollnoT = $vals_row['rollno'];
-                            $tableQuery = "SELECT uname,country,faculty FROM university WHERE rollno = '$rollnoT' AND recommReq='$name' AND status!='approved'";
+                    <div class="olContainer">
+                        <button class="btn-success" onclick="displayToggle(this)">
+                            <li><?php echo "$rollnoT"; ?></li>
+                        </button>
+                        <div class="visi">
+                            <table>
+                                <tr>
+                                    <th>S.N.</th>
+                                    <th>University</th>
+                                    <th>Country</th>
+                                    <th>Faculty</th>
+                                </tr>
 
-                            if ($valsI = $sqldb->query($tableQuery)) {
+                                <?php
+                                $rollnoT = $vals_row['rollno'];
+                                $tableQuery = "SELECT uname,country,faculty FROM university WHERE rollno = '$rollnoT' AND recommReq='$name' AND status!='approved'";
 
-                                if (mysqli_num_rows($valsI) > 0) {
+                                if ($valsI = $sqldb->query($tableQuery)) {
 
-                                    while ($valsI_row = mysqli_fetch_assoc($valsI)) {
-                                        $unameT = $valsI_row['uname'];
-                                        $countryT = $valsI_row['country'];
-                                        $facultyT = $valsI_row['faculty'];
-                            ?>
-                                        <tr>
-                                            <td><?php echo "$sn"; ?></td>
-                                            <td><?php echo "$unameT"; ?></td>
-                                            <td><?php echo "$countryT"; ?></td>
-                                            <td><?php echo "$facultyT"; ?></td>
-                                        </tr>
-                <?php
-                                        $sn = $sn + 1;
+                                    if (mysqli_num_rows($valsI) > 0) {
+
+                                        while ($valsI_row = mysqli_fetch_assoc($valsI)) {
+                                            $unameT = $valsI_row['uname'];
+                                            $countryT = $valsI_row['country'];
+                                            $facultyT = $valsI_row['faculty'];
+                                ?>
+                                            <tr>
+                                                <td><?php echo "$sn"; ?></td>
+                                                <td><?php echo "$unameT"; ?></td>
+                                                <td><?php echo "$countryT"; ?></td>
+                                                <td><?php echo "$facultyT"; ?></td>
+                                            </tr>
+                    <?php
+                                            $sn = $sn + 1;
+                                        }
                                     }
+                                    echo "</table></div></div>";
+                                } else {
+                                    echo "records not found for $rollnoT";
                                 }
-                                echo "</table></div></div>";
-                            } else {
-                                echo "records not found for $rollnoT";
                             }
+                            echo "</ol>";
                         }
-                        echo "</ol>";
+                    } else {
+                        echo "<br>Error running query";
                     }
-                } else {
-                    echo "<br>Error running query";
-                }
 
-                echo "<form method=\"POST\" action=\"recommend_letter.php\" >
+                    echo "<form method=\"POST\" action=\"recommend_letter.php\" >
     <input type =\"text\" name=\"rollno\" placeholder = \"Enter Roll No.\">
     <br>
-    <input type = \"submit\" value =\"Generate Letter\">
+    <br>
+    <input class = \"btn-primary\" type = \"submit\" value =\"Generate Letter\">
     </form>
     ";
-                ?>
+                    ?>
 </body>
 
 </html>

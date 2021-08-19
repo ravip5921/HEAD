@@ -1,7 +1,76 @@
 :root {
   --gradient: linear-gradient(90deg, #0fc4f1, #12b3f3e0);
 }
+.header {
+  color: whitesmoke;
+  background-color: rgb(92, 212, 212);
+  height: 170;
+}
 
+.header h1 {
+  height: 45;
+  width: 400;
+}
+
+.header h2 {
+  height: 45;
+  width: 400;
+  margin-left: 50;
+}
+
+.top-text {
+  width: 400;
+  margin-left: 500;
+}
+
+.logout {
+  width: 50px;
+  margin-left: 15%;
+  margin-top: 30;
+}
+
+.change_p {
+  margin-top: 20;
+}
+
+.bg {
+  background: url(../img/studentBackground1.jpg);
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-color: blueviolet;
+}
+.welcome_part {
+  padding: 20;
+  height: 150;
+  font-size: 16px;
+  color: white;
+  margin-left: 30;
+}
+.application-details {
+  margin-top: -60;
+  margin-bottom: 0;
+  margin-left: 10;
+  color: white;
+}
+form {
+  margin-left: 50;
+  color: whitesmoke;
+}
+.applied {
+  margin-top: -370;
+  margin-bottom: 0;
+  margin-right: 250;
+  color: white;
+}
+::placeholder_value {
+  color: black;
+}
+.Letter {
+  color: white;
+  padding-left: 3vh;
+}
 * {
   font-family: "Open Sans", sans-serif;
   margin: 0;
@@ -18,6 +87,12 @@
   color: fffff;
 }
 
+.submitB {
+  width: 20vh;
+}
+.olContainer {
+  margin-left: 10vh;
+}
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -35,12 +110,12 @@ html::-webkit-scrollbar-thumb {
 body {
   margin: 0;
   padding: 0;
-  /* background: url(img/photo-1590579491624-f98f36d4c763.jpg); */
-  background-size: 2000px;
-  height: 600px;
+  background: url(..img/photo-1590579491624-f98f36d4c763.jpg);
+  background-size: cover;
+  height: 100vh;
   background-position: center;
   font-family: sans-serif;
-  height: 300rem;
+  background-repeat: no-repeat;
 }
 
 header {
@@ -144,4 +219,30 @@ header #menu {
   header .navbar.nav-toggle {
     top: 6.4rem;
   }
+}
+/***** TABLE  **********/
+
+table {
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 5px;
+  width: 200px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+th {
+  background: #333;
+  color: white;
+}
+
+tr:nth-child(odd) {
+  background: #ddd;
+}
+
+tr:nth-child(even) {
+  background: #ccc;
 }

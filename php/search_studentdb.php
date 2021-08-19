@@ -1,32 +1,18 @@
 <?php session_start(); ?>
 <html>
 <style>
-    table {
-        border-collapse: collapse;
-    }
-
-    td,
-    th {
-        padding: 5px;
-        width: 200px;
-        outline: none;
-        border: 1px solid #ccc;
-    }
-
-    th {
-        background: #333;
-        color: white;
-    }
-
-    tr:nth-child(odd) {
-        background: #ddd;
-    }
-
-    tr:nth-child(even) {
-        background: #ccc;
-    }
+    <?php include '../css/search.css'; ?>
 </style>
-
+<script>
+    function displayToggle(element) {
+        var x = element.nextElementSibling;
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
 <?php
 require 'connect_todb.php';
 
@@ -89,7 +75,8 @@ if (isset($_POST['search_students'])) {
 
     $search_query .= $search_criteria . " ORDER BY student.rollno";
     // echo "<p>" . $search_query . "</p>";
-
+    $flag = 1;
+    $rn = "";
     if ($result = $sqldb->query($search_query)) {
         if (mysqli_num_rows($result) > 0) {
 ?>
@@ -114,6 +101,18 @@ if (isset($_POST['search_students'])) {
                         $unameV = $result_row['uname'];
                         $facultyV = $result_row['faculty'];
                         $countryV = $result_row['country'];
+                        if ($rn != $rollnoV) {
+                            if ($flag == 1) {
+                                $flag = 0;
+                            } else {
+                                echo "</div>";
+                            }
+                            // echo "$rollnoV";
+                            $rn = $rollnoV;
+
+                            echo "<button onclick=\"displayToggle(this)\">$rollnoV</button>
+                            <div id=\"$rollnoV\">";
+                        }
                     ?>
                         <div>
                             <tr>
@@ -125,7 +124,7 @@ if (isset($_POST['search_students'])) {
                                 <td><?php echo "$countryV"; ?></td>
                             </tr>
                         </div>
-        <?php
+            <?php
                         // echo "<p>" . $result_row['rollno'] . " | " . $result_row['name'] . " | " . " | " . $result_row['dob'] . " | "
                         //     . $result_row['uname'] . " | " . $result_row['faculty'] . " | " . $result_row['country'] . "</p>";
                     }
@@ -142,18 +141,18 @@ if (isset($_POST['search_students'])) {
 
         if ($_SESSION["userType"] == "teacher") {
             // echo "Hi Teacher";
-            echo "<br><button id=\"returnButton\">Return</button>
-    <script>
-        var btn = document.getElementById('returnButton');
-        btn.addEventListener('click', function() {
-            document.location.href = 'teacher.php';
-        });
-    </script>";
-            // header("Refresh:1; url=teacher.php");
-        } else { //if ($_SESSION["userType"] == "admin") {
-            echo "Hi Admin";
-            // header("Refresh:1; url=teacher.php");
-        }
-        ?>
+            ?><br><button id="returnButton">Return</button>
+            <script>
+                var btn = document.getElementById('returnButton');
+                btn.addEventListener('click', function() {
+                    document.location.href = 'teacher.php';
+                });
+            </script><?php
+                        // header("Refresh:1; url=teacher.php");
+                    } else { //if ($_SESSION["userType"] == "admin") {
+                        echo "Hi Admin";
+                        // header("Refresh:1; url=teacher.php");
+                    }
+                        ?>
 
 </html>
