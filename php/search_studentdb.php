@@ -78,6 +78,7 @@ if (isset($_POST['search_students'])) {
     //SELECT student.name, ... FROM student INNER JOIN university ON student.rollno = university.rollno
 
     //$search_query = "SELECT * FROM `student` , `university` WHERE ";
+
     $search_query = "SELECT * FROM student INNER JOIN university ON student.rollno = university.rollno WHERE ";
 
     $search_criteria = array_merge($search_criterias_student, $search_criterias_university);
@@ -86,7 +87,7 @@ if (isset($_POST['search_students'])) {
         $search_criteria = '1';
     }
 
-    $search_query .= $search_criteria;
+    $search_query .= $search_criteria . " ORDER BY student.rollno";
     // echo "<p>" . $search_query . "</p>";
 
     if ($result = $sqldb->query($search_query)) {
@@ -114,14 +115,16 @@ if (isset($_POST['search_students'])) {
                         $facultyV = $result_row['faculty'];
                         $countryV = $result_row['country'];
                     ?>
-                        <tr>
-                            <td><?php echo "$rollnoV"; ?></td>
-                            <td><?php echo "$nameV"; ?></td>
-                            <td><?php echo "$dobV"; ?></td>
-                            <td><?php echo "$unameV"; ?></td>
-                            <td><?php echo " $facultyV"; ?></td>
-                            <td><?php echo "$countryV"; ?></td>
-                        </tr>
+                        <div>
+                            <tr>
+                                <td><?php echo "$rollnoV"; ?></td>
+                                <td><?php echo "$nameV"; ?></td>
+                                <td><?php echo "$dobV"; ?></td>
+                                <td><?php echo "$unameV"; ?></td>
+                                <td><?php echo " $facultyV"; ?></td>
+                                <td><?php echo "$countryV"; ?></td>
+                            </tr>
+                        </div>
         <?php
                         // echo "<p>" . $result_row['rollno'] . " | " . $result_row['name'] . " | " . " | " . $result_row['dob'] . " | "
                         //     . $result_row['uname'] . " | " . $result_row['faculty'] . " | " . $result_row['country'] . "</p>";
