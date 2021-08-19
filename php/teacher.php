@@ -48,6 +48,9 @@
             <form action="logout.php">
                 <input type="submit" value="Log Out">
             </form>
+            <div>
+                <a href="changePassword.php">Change Password</a>
+            </div>
         </div>
     </div>
 

@@ -36,6 +36,9 @@
                 <input class=" btn btn-primary btn-lg float-right" type="submit" value="Log Out">
             </form>
         </div>
+        <div>
+            <a href="changePassword.php">Change Password</a>
+        </div>
     </div>
     <div class="bg">
         <div class="welcome_part col-md-8">
@@ -77,7 +80,7 @@
                     <label for="inputfaculty4">Faculty:</label>
                     <input type="text" id="f" name="faculty" placeholder="Faculty" class="form-control">
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-6 appli">
                     <label for="inputstatus4">Application Status:</label>
                     <input type="text" name="status" placeholder="Application Status" class="form-control">
                 </div>

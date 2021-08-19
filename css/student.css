@@ -6,7 +6,8 @@
 
 body {
   /* background: url(../img/studentBackground.jpg);*/
-  background-size: 2000px;
+  background-size: cover;
+  height: 100vh;
   background-position: center;
   font-family: sans-serif;
   color: black;
@@ -39,7 +40,7 @@ body {
 .logout {
   width: 50px;
   margin: 30;
-  margin-left: 300;
+  margin-left: 60vh;
   margin-top: 50;
 }
 
@@ -47,7 +48,7 @@ body {
 .bg {
   background: url(../img/studentBackground1.jpg);
   background-repeat: no-repeat;
-  height: 500px;
+  height: 100vh;
   background-position: center;
   background-size: cover;
   background-color: blueviolet;
@@ -76,7 +77,10 @@ form {
   margin-left: 20;
   color: whitesmoke;
 }
-
+.appli label {
+  color: white;
+  background-color: black;
+}
 .selecti {
   padding-top: 25;
   color: black;
@@ -85,10 +89,12 @@ form {
 .add_application {
   color: black;
 }
+
 /***** TABLE  **********/
 
 table {
   border-collapse: collapse;
+  margin: 45vh;
 }
 
 td,
