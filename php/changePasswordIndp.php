@@ -38,12 +38,12 @@ if ($userType == "student") {
                 ?><script>
                         alert("New Passwords don't match");
                     </script><?php
-                                header("Refresh:0; url=$userType.php");
+                                header("Refresh:0; url=changePassword.php");
                             } else {
                                 ?><script>
                         alert("Password dosen't match");
                     </script><?php
-                                header("Refresh:0; url=$userType.php");
+                                header("Refresh:0; url=changePassword.php");
                             }
                         }
                     }
@@ -81,12 +81,12 @@ if ($userType == "student") {
                 ?><script>
                         alert("New Passwords don't match");
                     </script><?php
-                                header("Refresh:0; url=$userType.php");
+                                header("Refresh:0; url=changedPassword.php");
                             } else {
                                 ?><script>
                         alert("Password dosen't match");
                     </script><?php
-                                header("Refresh:0; url=$userType.php");
+                                header("Refresh:0; url=changedPassword.php");
                             }
                         }
                     }
