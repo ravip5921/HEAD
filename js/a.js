@@ -19,3 +19,4 @@ function editVar(element, column, id) {
     },
   });
 }
+$("editable_Select").editableSelect();

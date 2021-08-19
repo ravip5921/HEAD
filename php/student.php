@@ -1,5 +1,9 @@
 <?php session_start() ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<link rel="stylesheet" href="jquery-editable-select.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="jquery-editable-select.min.js"></script>
 
 <html>
 
@@ -214,7 +218,11 @@
                 <h3>Request for Recommendation Letter</h3>
             </div>
             <div class="form-col ">
-                <input type="text" name="requestR" placeholder="Request to">
+                <!-- <input type="text" name="requestR" placeholder="Request to"> -->
+                <select id="editable_Select" name="RequestR">
+                    <option>Aman</option>
+                    <option>Bibha</option>
+                </select>
             </div>
         </div>
         <div class="form-row">
@@ -242,6 +250,7 @@
                 <th>Status</th>
             </tr>
             <?php
+
             if (mysqli_num_rows($vals) > 0) {
 
                 while ($vals_row = mysqli_fetch_assoc($vals)) {
