@@ -45,7 +45,7 @@ if (isset($_POST['search_students'])) {
     $search_query .= $search_criteria;
     $search_query .= " ORDER BY rollno";
     echo "<p>" . $search_query . "</p>";
-    sleep(2);
+
 
     if ($result = $sqldb->query($search_query)) {
         if (mysqli_num_rows($result) > 0) {
