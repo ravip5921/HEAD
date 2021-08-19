@@ -5,88 +5,86 @@
 }
 
 body {
-  background: url(../img/photo-1590579491624-f98f36d4c763.jpg);
+  /* background: url(../img/studentBackground.jpg);*/
   background-size: 2000px;
-  height: 600px;
   background-position: center;
   font-family: sans-serif;
-  height: 300rem;
+  color: black;
 }
 
 /******** HEADER ********/
 .header {
-  color: darkred;
-  background-color: lightblue;
+  color: whitesmoke;
+  background-color: maroon;
+  height: 150;
 }
 
 .header h1 {
   height: 45;
   width: 400;
-  margin-left: 500;
+  /*margin-left: 500;*/
 }
 
 .header h2 {
   height: 45;
   width: 400;
-  margin-left: 580;
+  margin-left: 50;
 }
 
-.header div form.logout {
-  /* background-color: cadetblue; */
-  width: 50px;
+.top-text {
+  width: 400;
+  margin-left: 500;
+}
 
-  margin-left: 1355px;
+.logout {
+  width: 50px;
+  margin: 30;
+  margin-left: 300;
+  margin-top: 50;
 }
 
 /********** HEADER END *************/
+.bg {
+  background: url(../img/studentBackground1.jpg);
+  background-repeat: no-repeat;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  background-color: blueviolet;
+}
+
 .welcome_part {
   padding: 20;
   height: 150;
-  background-color: burlywood;
+  font-size: 16px;
+  color: white;
+  margin-left: 30;
 }
 
 .application-details {
-  margin-top: 40;
-  margin-left: 20;
   margin-bottom: 20;
+  margin-left: 30;
 }
 
 .application-details h3 {
-  width: 220;
-  background-color: cadetblue;
+  width: 300;
+  color: white;
 }
 
 /********** FORM **************/
 form {
   margin-left: 20;
+  color: whitesmoke;
 }
 
-form h3 {
-  text-decoration: underline;
-  width: 500;
-  height: 30;
+.selecti {
+  padding-top: 25;
+  color: black;
 }
 
-.form-row {
-  margin: 0;
+.add_application {
+  color: black;
 }
-
-.form-col {
-  margin: 0;
-}
-
-.form-col h3 {
-  width: 327px;
-  background-color: cadetblue;
-}
-
-form input {
-  margin-bottom: 10;
-  padding: 0;
-  height: 30;
-  width: 130;
-}
-
 /***** TABLE  **********/
 
 table {

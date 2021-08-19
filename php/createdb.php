@@ -24,3 +24,10 @@ if ($sqldb->query($createtable)) {
 } else {
     die("Couldn\'t create table university");
 }
+
+$tableIdQuery = "ALTER TABLE university ADD id MEDIUMINT NOT NULL AUTO_INCREMENT KEY";
+if ($sqldb->query($tableIdQuery)) {
+    echo "<p>Id added to table university";
+} else {
+    die("Couldn\'t add id to table university");
+}
