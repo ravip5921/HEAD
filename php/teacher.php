@@ -86,8 +86,8 @@
 
 
         <form method="POST" action="search_studentdb.php">
-            <div>
-                <div class="form-row1">
+            <div class="Appli-form" style="width:50%; float:left;">
+                <div class=" form-row1">
                     <label for="name">name:</label><br>
                     <input type="text" name="name" id="name" placeholder="Enter Name">
                 </div>
@@ -104,9 +104,9 @@
                     <input type="text" name="department" placeholder="Enter Department">
                 </div>
             </div>
-            <div>
+            <div class="applied" style="width:50%; float:right;">
                 <h2>Applied To: </h2>
-                <div class="form-row2">
+                <div class=" form-row2">
                     <label for="country">Country:</label><br>
                     <input type="text" name="country" placeholder="Enter Country">
                 </div>
@@ -126,87 +126,124 @@
 
 
         <br>
-        <div class="Letter">
+        <div class="Letter" style="width:50%; float:left;">
             <h2>Recommendation Letter Requests</h2>
-        </div>
-
-        <?php
-        // Recommendation Letter//
 
 
-        if (!$sqldb->select_db('higherEducationdb')) {
-            die("not connected to database");
-        }
-        $name = $_SESSION['name'];
-        $rollnoQuery = "SELECT rollno FROM university GROUP BY rollno HAVING COUNT(id) >=1";
-        if ($vals = $sqldb->query($rollnoQuery)) {
-        ?>
             <?php
-            if (mysqli_num_rows($vals) > 0) {
-                echo "<ol>";
-                while ($vals_row = mysqli_fetch_assoc($vals)) {
-                    $sn = 1;
-                    $rollnoT = $vals_row['rollno'];
+            // Recommendation Letter//
 
+
+            if (!$sqldb->select_db('higherEducationdb')) {
+                die("not connected to database");
+            }
+            $name = $_SESSION['name'];
+            $rollnoQuery = "SELECT rollno FROM university GROUP BY rollno HAVING COUNT(id) >=1";
+            if ($vals = $sqldb->query($rollnoQuery)) {
             ?>
+                <?php
+                if (mysqli_num_rows($vals) > 0) {
+                    echo "<ol>";
+                    while ($vals_row = mysqli_fetch_assoc($vals)) {
 
+                        $rollnoT = $vals_row['rollno'];
 
+                ?>
+                        <div class="olContainer">
+                            <button class="btn-success" onclick="displayToggle(this)">
+                                <li><?php echo "$rollnoT"; ?></li>
+                            </button>
+                            <div class="visi">
+                                <table>
+                                    <tr>
 
-                    <div class="olContainer">
-                        <button class="btn-success" onclick="displayToggle(this)">
-                            <li><?php echo "$rollnoT"; ?></li>
-                        </button>
-                        <div class="visi">
-                            <table>
+                                        <th>University</th>
+                                        <th>Country</th>
+                                        <th>Faculty</th>
+                                    </tr>
+
+                                    <?php
+                                    $rollnoT = $vals_row['rollno'];
+                                    $tableQuery = "SELECT uname,country,faculty FROM university WHERE rollno = '$rollnoT' AND recommReq='$name' AND status!='approved' AND recStatus='pending'";
+
+                                    if ($valsI = $sqldb->query($tableQuery)) {
+
+                                        if (mysqli_num_rows($valsI) > 0) {
+
+                                            while ($valsI_row = mysqli_fetch_assoc($valsI)) {
+                                                $unameT = $valsI_row['uname'];
+                                                $countryT = $valsI_row['country'];
+                                                $facultyT = $valsI_row['faculty'];
+                                    ?>
+                                                <tr>
+
+                                                    <td><?php echo "$unameT"; ?></td>
+                                                    <td><?php echo "$countryT"; ?></td>
+                                                    <td><?php echo "$facultyT"; ?></td>
+                                                </tr>
+                        <?php
+
+                                            }
+                                        }
+                                        echo "</table></div></div>";
+                                    } else {
+                                        echo "records not found for $rollnoT";
+                                    }
+                                }
+                                echo "</ol>";
+                            }
+                        } else {
+                            echo "<br>Error running query";
+                        }
+                        ?>
+                        <button class="btn-success active" onclick="displayToggle(this)">Approved Requests</button>
+                        <div class="Approved" style="display:none">
+                            <?php
+                            $tableQuery = "SELECT uname,country,faculty FROM university WHERE recommReq='$name' AND status!='approved' AND recStatus='approved'";
+                            ?><table>
                                 <tr>
-                                    <th>S.N.</th>
                                     <th>University</th>
                                     <th>Country</th>
                                     <th>Faculty</th>
-                                </tr>
+                                </tr><?php
+                                        if ($valsI = $sqldb->query($tableQuery)) {
 
-                                <?php
-                                $rollnoT = $vals_row['rollno'];
-                                $tableQuery = "SELECT uname,country,faculty FROM university WHERE rollno = '$rollnoT' AND recommReq='$name' AND status!='approved'";
+                                            if (mysqli_num_rows($valsI) > 0) {
 
-                                if ($valsI = $sqldb->query($tableQuery)) {
-
-                                    if (mysqli_num_rows($valsI) > 0) {
-
-                                        while ($valsI_row = mysqli_fetch_assoc($valsI)) {
-                                            $unameT = $valsI_row['uname'];
-                                            $countryT = $valsI_row['country'];
-                                            $facultyT = $valsI_row['faculty'];
-                                ?>
+                                                while ($valsI_row = mysqli_fetch_assoc($valsI)) {
+                                                    $unameT = $valsI_row['uname'];
+                                                    $countryT = $valsI_row['country'];
+                                                    $facultyT = $valsI_row['faculty'];
+                                        ?>
                                             <tr>
-                                                <td><?php echo "$sn"; ?></td>
+
                                                 <td><?php echo "$unameT"; ?></td>
                                                 <td><?php echo "$countryT"; ?></td>
                                                 <td><?php echo "$facultyT"; ?></td>
                                             </tr>
-                    <?php
-                                            $sn = $sn + 1;
+                                <?php
+                                                }
+                                            }
+                                            echo "</table></div></div>";
+                                        } else {
+                                            echo "records not found for $rollnoT";
                                         }
-                                    }
-                                    echo "</table></div></div>";
-                                } else {
-                                    echo "records not found for $rollnoT";
-                                }
-                            }
-                            echo "</ol>";
-                        }
-                    } else {
-                        echo "<br>Error running query";
-                    }
+                                ?>
+                            </table>
+                        </div><?php
+                                ?>
+                            </div>
+                            <div class="generateLetter" style="width:50%; float:left;">
+                                <h2>Generate Letter For:</h2>
+                                <form method="POST" action="recommend_letter.php">
+                                    <input type="text" name="rollno" placeholder="Roll No.">
+                                    <br>
+                                    <br>
+                                    <input class="btn-primary" type="submit" value="Generate Letter">
+                                </form>
+                            </div>
 
-                    echo "<form method=\"POST\" action=\"recommend_letter.php\" >
-    <input type =\"text\" name=\"rollno\" placeholder = \"Enter Roll No.\">
-    <br>
-    <br>
-    <input class = \"btn-primary\" type = \"submit\" value =\"Generate Letter\">
-    </form>
-    ";
-                    ?>
+
 </body>
 
 </html>

@@ -58,10 +58,17 @@ form {
   margin-left: 50;
   color: whitesmoke;
 }
-.applied {
-  margin-top: -370;
+.Appli-form {
+  padding-top: 1vh;
   margin-bottom: 0;
-  margin-right: 250;
+  margin-top: -1%;
+  padding-left: 20;
+  color: white;
+}
+.applied {
+  margin-top: -16.5%;
+  margin-bottom: 0;
+  margin-right: 300;
   color: white;
 }
 ::placeholder_value {
@@ -69,7 +76,68 @@ form {
 }
 .Letter {
   color: white;
-  padding-left: 3vh;
+  /* padding-left: 30;
+  padding-top: 10vh; */
+  margin-left: 1.5%;
+  margin-top: -10;
+}
+.olContainer {
+  margin-left: 1.5%;
+  /* margin-top: -10; */
+}
+.olContainer table {
+  border-collapse: collapse;
+}
+.olContainer td,
+th {
+  padding: 5px;
+  width: 200px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.olContainer th {
+  background: #333;
+  color: white;
+}
+
+.olContainer tr:nth-child(odd) {
+  background: #ddd;
+}
+
+.olContainer tr:nth-child(even) {
+  background: #ccc;
+}
+
+table {
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: 5px;
+  width: 200px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+th {
+  background: #333;
+  color: white;
+}
+
+tr:nth-child(odd) {
+  background: #ddd;
+}
+
+tr:nth-child(even) {
+  background: #ccc;
+}
+
+.generateLetter {
+  margin-top: 3%;
+}
+.generateLetter h2 {
+  color: white;
 }
 * {
   font-family: "Open Sans", sans-serif;
@@ -87,12 +155,6 @@ form {
   color: fffff;
 }
 
-.submitB {
-  width: 20vh;
-}
-.olContainer {
-  margin-left: 10vh;
-}
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -219,30 +281,4 @@ header #menu {
   header .navbar.nav-toggle {
     top: 6.4rem;
   }
-}
-/***** TABLE  **********/
-
-table {
-  border-collapse: collapse;
-}
-
-td,
-th {
-  padding: 5px;
-  width: 200px;
-  outline: none;
-  border: 1px solid #ccc;
-}
-
-th {
-  background: #333;
-  color: white;
-}
-
-tr:nth-child(odd) {
-  background: #ddd;
-}
-
-tr:nth-child(even) {
-  background: #ccc;
 }

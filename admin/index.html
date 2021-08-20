@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HEAD</title>
-
+    <title>HEAD-ADMIN</title>
+    <!-- google fonts cdn link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -17,23 +19,23 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <!-- custom css file link-->
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="../css/login.css" />
   </head>
-  <body style="background-image: url('img/loginBG.jpg')">
+  <body style="background-image: url('../img/loginBG.jpg')">
     <!--header section starts-->
     <header>
       <div id="menu" class="fas fa-bars"></div>
       <a href="#" class="logo"><i class="fas fa-user-graduate"> HEAD</i></a>
       <nav class="navbar">
         <ul>
-          <li><a class="active" href="index.html">Login</a></li>
+          <li><a class="active" href="index.html">Administrator</a></li>
         </ul>
       </nav>
 
-      <div id="login" class="fas fa-user-circle" style="font-size: 30px"></div>
-      <form method="POST" action="php/login.php">
+      <div id="login" class="fas fa-user-cog" style="font-size: 30px"></div>
+      <form method="POST" action="home.php">
         <div class="loginbox">
-          <img src="img/user.jpg" class="user" />
+          <img src="../img/user.jpg" class="user" />
           <h1>Login Here</h1>
           <h1>Username</h1>
           <br />
@@ -51,13 +53,11 @@
           <input
             type="radio"
             name="usercat"
-            id="student"
-            value="student"
+            id="admin"
+            value="admin"
             checked
+            style="display: none"
           />
-          <label for="student">Student</label>
-          <input type="radio" name="usercat" id="teacher" value="teacher" />
-          <label for="teacher">Teacher</label>
         </div>
       </form>
     </header>
@@ -80,5 +80,7 @@
 
     <!-- jquery cdn link-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- custom js file link-->
   </body>
 </html>

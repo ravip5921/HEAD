@@ -1,11 +1,14 @@
 /***** TABLE  **********/
 
+body {
+  background-color: lightslategray;
+}
 table {
   border-collapse: collapse;
-  /* margin: 45vh; */
+  margin-left: 2%;
 }
 
-td,
+table td,
 th {
   padding: 5px;
   width: 200px;
@@ -13,28 +16,15 @@ th {
   border: 1px solid #ccc;
 }
 
-th {
+table th {
   background: #333;
   color: white;
 }
 
-tr:nth-child(odd) {
+table tr:nth-child(odd) {
   background: #ddd;
 }
 
-tr:nth-child(even) {
+table tr:nth-child(even) {
   background: #ccc;
-}
-
-div {
-  outline: none;
-}
-.pageHeader {
-  background-color: lightcoral;
-}
-
-.top-text {
-  width: 400;
-  margin-left: 500;
-  background-color: lightseagreen;
 }

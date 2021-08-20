@@ -13,10 +13,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Higher Education Management</title>
-    <!-- google fonts cdn link-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <style>
         <?php include '../css/bootstrap.min.css'; ?><?php include '../css/student.css'; ?>
     </style>
@@ -25,6 +21,7 @@
 <!--  *********************************************   HEAD END   ************************************************************************** -->
 
 <body>
+
     <div class="header form-row">
 
         <div class=" top-text form-group col-md-8">
@@ -34,7 +31,7 @@
         <div>
             <form class="logout form-group col-md-4" action="logout.php">
                 <input class=" btn btn-primary btn-lg float-right" type="submit" value="Log Out">
-                <a class ="btn btn-primary btn-lg active change_p" href="changePassword.php">Change Password</a>
+                <a class="btn btn-primary btn-lg active change_p" href="changePassword.php">Change Password</a>
             </form>
         </div>
     </div>
