@@ -34,7 +34,7 @@
 }
 
 .bg {
-  background: url(../img/studentBackground1.jpg);
+  background: url(../img/bg.jpg);
   background-repeat: no-repeat;
   height: 100vh;
   background-position: center;
@@ -74,12 +74,23 @@ form {
 ::placeholder_value {
   color: black;
 }
+.generateLetter {
+  /* position: absolute; */
+  width: 30%;
+  float: right;
+  margin-top: 20%;
+  padding-top: 14%;
+}
 .Letter {
   color: white;
   /* padding-left: 30;
   padding-top: 10vh; */
   margin-left: 1.5%;
   margin-top: -10;
+}
+.Letter h2 {
+  width: 70%;
+  background-color: rgb(16, 141, 214);
 }
 .olContainer {
   margin-left: 1.5%;
@@ -138,6 +149,7 @@ tr:nth-child(even) {
 }
 .generateLetter h2 {
   color: white;
+  margin-top: -30%;
 }
 * {
   font-family: "Open Sans", sans-serif;
@@ -172,9 +184,9 @@ html::-webkit-scrollbar-thumb {
 body {
   margin: 0;
   padding: 0;
-  background: url(..img/photo-1590579491624-f98f36d4c763.jpg);
+  background-color: #7da52a;
   background-size: cover;
-  height: 100vh;
+  /* height: 100vh; */
   background-position: center;
   font-family: sans-serif;
   background-repeat: no-repeat;

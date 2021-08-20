@@ -35,7 +35,7 @@ html::-webkit-scrollbar-thumb {
 body {
   margin: 0;
   padding: 0;
-  background: url(../img/loginBG.jpg);
+  background: url(../img/bg.jpg);
   background-size: cover;
   height: 100vh;
   background-position: center;

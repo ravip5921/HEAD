@@ -72,6 +72,17 @@
             <!-- Search area for searching students records -->
         </div>
 
+
+        <div class="generateLetter">
+            <h2>Generate Letter For:</h2>
+            <form method="POST" action="recommend_letter.php">
+                <input type="text" name="rollno" placeholder="Roll No.">
+                <br>
+                <br>
+                <input class="btn-primary" type="submit" value="Generate Letter">
+            </form>
+        </div>
+
         <div class="application-details col-md-10" style="width: 50%; float: left;">
             <h2>Enter Application details:</h2>
         </div>
@@ -119,14 +130,14 @@
                     <input type="text" name="university" placeholder="Enter University">
                 </div>
                 <div class="form-row2">
-                    <input class="btn btn-primary btn-lg active submitB" type="submit" name="search_students" value="Search">
+                    <input class="btn btn-success btn-lg active submitB" type="submit" name="search_students" value="Search">
                 </div>
             </div>
         </form>
 
 
         <br>
-        <div class="Letter" style="width:50%; float:left;">
+        <div class="Letter" style="position:relative;width:50%; float:left;">
             <h2>Recommendation Letter Requests</h2>
 
 
@@ -233,15 +244,7 @@
                         </div><?php
                                 ?>
                             </div>
-                            <div class="generateLetter" style="width:50%; float:left;">
-                                <h2>Generate Letter For:</h2>
-                                <form method="POST" action="recommend_letter.php">
-                                    <input type="text" name="rollno" placeholder="Roll No.">
-                                    <br>
-                                    <br>
-                                    <input class="btn-primary" type="submit" value="Generate Letter">
-                                </form>
-                            </div>
+
 
 
 </body>
