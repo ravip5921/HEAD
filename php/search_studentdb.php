@@ -4,12 +4,20 @@
     <?php include '../css/search.css'; ?>
 </style>
 <script>
-    function displayToggle(element) {
-        var x = element.nextElementSibling;
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
+    function displayToggle(ElementClass) {
+
+        var x = document.getElementsByClassName(ElementClass);
+        var elem;
+        for (i = 1; i < x.length; i++) {
+            console.log(x[i].style.display);
+            // if (x[i] != element) {
+            if (x[i].style.display == "none") {
+                x[i].style.display = "table-row";
+            } else {
+                x[i].style.display = "none";
+            }
+
+            // }
         }
     }
 </script>
@@ -102,28 +110,21 @@ if (isset($_POST['search_students'])) {
                         $facultyV = $result_row['faculty'];
                         $countryV = $result_row['country'];
                         if ($rn != $rollnoV) {
-                            if ($flag == 1) {
-                                $flag = 0;
-                            } else {
-                                echo "</div>";
-                            }
-                            // echo "$rollnoV";
                             $rn = $rollnoV;
 
-                            echo "<button onclick=\"displayToggle(this)\">$rollnoV</button>
-                            <div id=\"$rollnoV\">";
+                            echo "<tr><td><button class =\"$rollnoV\" onclick=\"displayToggle('$rollnoV')\">$rollnoV</button></td></tr>";
                         }
                     ?>
-                        <div>
-                            <tr>
-                                <td><?php echo "$rollnoV"; ?></td>
-                                <td><?php echo "$nameV"; ?></td>
-                                <td><?php echo "$dobV"; ?></td>
-                                <td><?php echo "$unameV"; ?></td>
-                                <td><?php echo " $facultyV"; ?></td>
-                                <td><?php echo "$countryV"; ?></td>
-                            </tr>
-                        </div>
+
+                        <tr style="display:none" class="<?php echo "$rollnoV"; ?>">
+                            <td><?php echo "$rollnoV"; ?></td>
+                            <td><?php echo "$nameV"; ?></td>
+                            <td><?php echo "$dobV"; ?></td>
+                            <td><?php echo "$unameV"; ?></td>
+                            <td><?php echo " $facultyV"; ?></td>
+                            <td><?php echo "$countryV"; ?></td>
+                        </tr>
+
             <?php
                         // echo "<p>" . $result_row['rollno'] . " | " . $result_row['name'] . " | " . " | " . $result_row['dob'] . " | "
                         //     . $result_row['uname'] . " | " . $result_row['faculty'] . " | " . $result_row['country'] . "</p>";

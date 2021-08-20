@@ -32,7 +32,7 @@
                 $_SESSION["name"] = $name;
                 $_SESSION["dob"] = $dob;
                 $_SESSION["rollno"] = $username;
-                header("Location: test.php");
+                header("Location: student.php");
             } else {
                 echo "<br>Login Unsuccessful";
             }
@@ -51,7 +51,7 @@
                 $_SESSION["department"] = $department;
                 // Passing info to profile page
 
-                header("Location: test.php");
+                header("Location: teacher.php");
                 // header("Location: teacher.php?department=$department&name=$username");
             } else {
                 echo "<br>Login Unsuccessful";
