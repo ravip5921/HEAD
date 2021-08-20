@@ -121,7 +121,7 @@
             die("not connected to database");
         }
         $sn = 1;
-        $applicationQuery = "SELECT uname,country,faculty,status,id FROM university WHERE rollno='$rollno'";
+        $applicationQuery = "SELECT uname,country,faculty,status,id,recommReq,recStatus FROM university WHERE rollno='$rollno'";
         if ($vals = $sqldb->query($applicationQuery)) {
 
         ?>
@@ -133,6 +133,8 @@
                     <th>Country</th>
                     <th>Faculty</th>
                     <th>Status</th>
+                    <th>Teacher</th>
+                    <th>Recommendation</th>
                 </tr>
                 <?php
 
@@ -143,6 +145,8 @@
                         $countryT = $vals_row['country'];
                         $facultyT = $vals_row['faculty'];
                         $statusT = $vals_row['status'];
+                        $teacherT = $vals_row['recommReq'];
+                        $recStatT = $vals_row['recStatus'];
                         $id = md5($vals_row['id']);
                 ?>
 
@@ -163,6 +167,12 @@
                             </td>
                             <td>
                                 <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'status','<?php echo $id ?>')"><?php echo $statusT; ?></div>
+                            </td>
+                            <td>
+                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'recommReq','<?php echo $id ?>')"><?php echo $teacherT; ?></div>
+                            </td>
+                            <td>
+                                <div contenteditable="false"><?php echo $recStatT; ?></div>
                             </td>
 
 

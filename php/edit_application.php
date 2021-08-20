@@ -1,6 +1,6 @@
 <?php
 include "dbEdit.php";
-sleep(0.7);
+sleep(1);
 if (isset($_POST['id'])) {
     $value = $_POST['value'];
     $column = $_POST['column'];
@@ -12,9 +12,9 @@ if (isset($_POST['id'])) {
     $query->bindParam('value', $value);
     $query->bindParam('id', $id);
     if ($query->execute()) {
-        echo "yay";
+        echo "Edited";
     } else {
-        echo "nay";
+        echo "Err";
     }
     // $editQuery = "UPDATE university SET $column = :'$value' WHERE md5(id) = :'$id' LIMIT 1";
 

@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <html>
 <style>
-    <?php include '../css/search.css'; ?>
+    <?php include '../css/search.css'; ?><?php include '../css/bootstrap.min.css'; ?>
 </style>
 <script>
     function displayToggle(ElementClass) {
@@ -22,10 +22,10 @@
     }
 </script>
 
-<body>
+<body style="background-color:#faebd7">
 
     <div class="header form-row">
-        <div class="top-text form-group">
+        <div style="background-color: lightseagreen;text-align:center">
             <h1>Institute of Engineering</h1>
             <h2>Pulchowk Campus</h2>
         </div>
@@ -101,12 +101,12 @@
                     <h1>Student Applications</h1><br><br>
                     <table>
                         <tr>
-                            <th>Roll No.</th>
-                            <th>Name</th>
-                            <th>Date of Birth</th>
-                            <th>University</th>
-                            <th>Faculty</th>
-                            <th>Country</th>
+                            <th style="text-align:center;">Roll No.</th>
+                            <th style="text-align:center;">Name</th>
+                            <th style="text-align:center;">Date of Birth</th>
+                            <th style="text-align:center;">University</th>
+                            <th style="text-align:center;">Faculty</th>
+                            <th style="text-align:center;">Country</th>
                         </tr>
                         <?php
                         //create table afterwards
@@ -121,17 +121,17 @@
                             if ($rn != $rollnoV) {
                                 $rn = $rollnoV;
 
-                                echo "<tr><td><button class =\"$rollnoV\" onclick=\"displayToggle('$rollnoV')\">$rollnoV</button></td></tr>";
+                                echo "<tr><td style=\"text-align:center;\"><button class =\"$rollnoV btn btn-success\"  onclick=\"displayToggle('$rollnoV')\">$rollnoV</button></td></tr>";
                             }
                         ?>
 
                             <tr style="display:none" class="<?php echo "$rollnoV"; ?>">
-                                <td><?php echo "$rollnoV"; ?></td>
-                                <td><?php echo "$nameV"; ?></td>
-                                <td><?php echo "$dobV"; ?></td>
-                                <td><?php echo "$unameV"; ?></td>
-                                <td><?php echo " $facultyV"; ?></td>
-                                <td><?php echo "$countryV"; ?></td>
+                                <td style="text-align:center;"><?php echo "$rollnoV"; ?></td>
+                                <td style="text-align:center;"><?php echo "$nameV"; ?></td>
+                                <td style="text-align:center;"><?php echo "$dobV"; ?></td>
+                                <td style="text-align:center;"><?php echo "$unameV"; ?></td>
+                                <td style="text-align:center;"><?php echo " $facultyV"; ?></td>
+                                <td style="text-align:center;"><?php echo "$countryV"; ?></td>
                             </tr>
 
                 <?php
@@ -151,7 +151,7 @@
 
             if ($_SESSION["userType"] == "teacher") {
                 // echo "Hi Teacher";
-                ?><br><button id="returnButton">Return</button>
+                ?><br><button class="btn btn-warning" id="returnButton">Return</button>
                 <script>
                     var btn = document.getElementById('returnButton');
                     btn.addEventListener('click', function() {
