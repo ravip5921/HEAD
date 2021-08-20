@@ -36,7 +36,7 @@
     ?><h1>Applying.........</h1>
     <?php
         echo "$name ,$dob ,$rollno applied for $faculty at $university in $country";
-        $entryQuery = "INSERT INTO university (`uname`,`country`,`rollno`,`faculty`,`recommReq`,`status`) VALUES ('$university','$country','$rollno','$faculty','$RecommendToTeacher','$status')";
+        $entryQuery = "INSERT INTO university (`uname`,`country`,`rollno`,`faculty`,`recommReq`,`status`,`recStatus`) VALUES ('$university','$country','$rollno','$faculty','$RecommendToTeacher','$status','pending')";
 
         $sqldb->query($entryQuery);
         // header("Refresh:0.5; url=student.php");

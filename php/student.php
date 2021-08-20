@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Higher Education Management</title>
+    <title>HEAD-Student</title>
     <style>
         <?php include '../css/bootstrap.min.css'; ?><?php include '../css/student.css'; ?>
     </style>

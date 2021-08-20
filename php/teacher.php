@@ -1,5 +1,9 @@
 <?php session_start() ?>
 <html>
+
+<head>
+    <title>HEAD-Teacher</title>
+</head>
 <script>
     function displayToggle(element) {
         var x = element.nextElementSibling;
@@ -73,13 +77,13 @@
         </div>
 
 
-        <div class="generateLetter">
-            <h2>Generate Letter For:</h2>
-            <form method="POST" action="recommend_letter.php">
+        <div class="generateLetter" contenteditable="true">
+            <h2 style="background-color:rgb(16, 141, 214);width:65%">Generate Letter For:</h2>
+            <form method="POST" action="recommendLetter.php">
                 <input type="text" name="rollno" placeholder="Roll No.">
                 <br>
                 <br>
-                <input class="btn-primary" type="submit" value="Generate Letter">
+                <input class="btn btn-primary" type="submit" value="Generate Letter">
             </form>
         </div>
 
@@ -154,15 +158,17 @@
             ?>
                 <?php
                 if (mysqli_num_rows($vals) > 0) {
-                    echo "<ol>";
+                    echo "<ul>";
                     while ($vals_row = mysqli_fetch_assoc($vals)) {
 
                         $rollnoT = $vals_row['rollno'];
 
                 ?>
                         <div class="olContainer">
-                            <button class="btn-success" onclick="displayToggle(this)">
-                                <li><?php echo "$rollnoT"; ?></li>
+                            <br>
+                            <button class="btn btn-success" onclick="displayToggle(this)">
+
+                                <li> <?php echo "$rollnoT"; ?></li>
                             </button>
                             <div class="visi">
                                 <table>
@@ -201,13 +207,13 @@
                                         echo "records not found for $rollnoT";
                                     }
                                 }
-                                echo "</ol>";
+                                echo "</ul>";
                             }
                         } else {
                             echo "<br>Error running query";
                         }
                         ?>
-                        <button class="btn-success active" onclick="displayToggle(this)">Approved Requests</button>
+                        <button class="btn btn-info" onclick="displayToggle(this)">Approved Requests</button>
                         <div class="Approved" style="display:none">
                             <?php
                             $tableQuery = "SELECT rollno,uname,country,faculty FROM university WHERE recommReq='$name' AND status!='approved' AND recStatus='approved' ORDER BY rollno";
