@@ -210,9 +210,10 @@
                         <button class="btn-success active" onclick="displayToggle(this)">Approved Requests</button>
                         <div class="Approved" style="display:none">
                             <?php
-                            $tableQuery = "SELECT uname,country,faculty FROM university WHERE recommReq='$name' AND status!='approved' AND recStatus='approved'";
+                            $tableQuery = "SELECT rollno,uname,country,faculty FROM university WHERE recommReq='$name' AND status!='approved' AND recStatus='approved' ORDER BY rollno";
                             ?><table>
                                 <tr>
+                                    <th>Roll No.</th>
                                     <th>University</th>
                                     <th>Country</th>
                                     <th>Faculty</th>
@@ -223,11 +224,12 @@
 
                                                 while ($valsI_row = mysqli_fetch_assoc($valsI)) {
                                                     $unameT = $valsI_row['uname'];
+                                                    $rollnoVt = $valsI_row['rollno'];
                                                     $countryT = $valsI_row['country'];
                                                     $facultyT = $valsI_row['faculty'];
                                         ?>
                                             <tr>
-
+                                                <td><?php echo "$rollnoVt"; ?></td>
                                                 <td><?php echo "$unameT"; ?></td>
                                                 <td><?php echo "$countryT"; ?></td>
                                                 <td><?php echo "$facultyT"; ?></td>
