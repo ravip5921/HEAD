@@ -12,7 +12,7 @@
 
 <body style = "background-color: #d4ffdf;">
     <button class="btn-primary" style="margin:1%" onclick="downloadRecordTable()">Generate excel sheet for records</button>
-    <a href="home.html"><button class="btn-primary" style="margin:1%">Back to main page</button></a>
+    <a href="home.php"><button class="btn-primary" style="margin:1%">Back to main page</button></a>
 
     <?php
     require 'connect_todb.php';
