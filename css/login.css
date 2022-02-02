@@ -42,16 +42,15 @@ body {
 
 /******************** nav bar styling  **********************************/
 .navbar {
-  width: 59%;
-  height: 10%;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0 ;
   top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
   z-index: 999;
   background-color: #12b3f3e0;
+  clear: none;
 }
 
 .navbar a {
@@ -66,8 +65,7 @@ body {
 
 .navbar .logo {
   color: white;
-  height: 50px;
-  padding-top: 8px;
+  padding-top: 10px;
   padding-bottom: 20px;
   margin-left: 20px;
   margin-top: 0;
@@ -75,14 +73,13 @@ body {
 }
 
 .navbar .logo i{
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .navbar .active{
-  height: 50px;
   padding-top: 10px;
   padding-bottom: 20px;
-  margin-right: 10%;
+  margin-right: 50%;
   margin-top: 0;
   float: right;
   font-family: 'milky nice';
@@ -103,13 +100,10 @@ body {
 }
 /********************** user type *******************/
 .userType{
+  width: 100%;
   float: right;
   color: white;
-  position: absolute;
-  transform: translate(120%,0%);
   background-color: #12b3f3e0;
-  padding-top: 1%;
-  padding-bottom: 1%;
 }
 #userTypeLogo {
   font-size: 3rem;
@@ -120,7 +114,7 @@ body {
 .userType ul{
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  padding-left: 50%;
   display: inline-flex;
 }
 .userType ul li{
