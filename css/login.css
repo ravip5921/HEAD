@@ -1,6 +1,3 @@
-:root {
-  --gradient: linear-gradient(90deg, #0fc4f1, #12b3f3e0);
-}
 
 * {
   font-family: "Open Sans", sans-serif;
@@ -11,11 +8,7 @@
   outline: none;
   text-decoration: none;
   text-transform: capitalize;
-  transition: all 0.2s linear;
-}
-*::selection {
-  background: #12b3f3e0;
-  color: fffff;
+  transition: all 0.2s smooth;
 }
 
 html {
@@ -24,6 +17,7 @@ html {
   height: 100%;
 }
 
+/****************** Scroll bar styling **********************/
 html::-webkit-scrollbar {
   width: 1.5rem;
 }
@@ -33,87 +27,106 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb {
   background: linear-gradient(#0fc4f1, #12b3f3e0);
 }
+/********************* End Scroll bar styling  ******************************/
+
 body {
   margin: 0;
   padding: 0;
   background: url(../img/bg.jpg);
   background-size: cover;
-  height: 100%;
   background-position: center;
+  background-repeat: no-repeat;
   font-family: sans-serif;
+  height: inherit;
 }
 
-header {
-  width: 100%;
+/******************** nav bar styling  **********************************/
+.navbar {
+  width: 59%;
+  height: 10%;
+  margin: 0 auto;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  padding: 1.5rem 7%;
-  background: var(--gradient);
-  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  background-color: #12b3f3e0;
 }
 
-header .logo {
-  color: white;
-  font-size: 2.5rem;
-  padding-right: 525px;
-}
-header .navbar ul {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-}
-
-header .navbar ul li {
-  margin: 0 1rem;
-  display: inline;
-  padding-right: 475px;
-}
-
-header .navbar ul li a {
+.navbar a {
   font-size: 2rem;
   color: white;
 }
 
-header .navbar ul li a.active,
-header .navbar ul li a:hover {
+.navbar a.active,
+.navbar a:hover {
   color: darkslategrey;
 }
 
-header #login {
-  font-size: 3rem;
+.navbar .logo {
   color: white;
-  cursor: pointer;
+  height: 50px;
+  padding-top: 8px;
+  padding-bottom: 20px;
+  margin-left: 20px;
+  margin-top: 0;
+  float: left;
 }
 
-header #login:hover {
-  color: darkslategray;
+.navbar .logo i{
+  font-size: 2.5rem;
 }
-header #menu {
-  font-size: 3rem;
-  color: white;
-  cursor: pointer;
-  display: none;
+
+.navbar .active{
+  height: 50px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-right: 10%;
+  margin-top: 0;
+  float: right;
+  font-family: 'milky nice';
+  font-weight: bold;
 }
+/***********************  nav bar styling end  ************************************/
+/************** login box styling *****************/
 
 .loginbox {
-  width: 32em;
-  height: 75em;
+  width: 30rem;
+  height: 40rem;
   background: #000;
   color: #fff;
-  top: 600%;
-  left: 50%;
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(180%, 40%);
   box-sizing: border-box;
   padding: 70px 30px;
 }
-
+/********************** user type *******************/
+.userType{
+  float: right;
+  color: white;
+  position: absolute;
+  transform: translate(120%,0%);
+  background-color: #12b3f3e0;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+#userTypeLogo {
+  font-size: 3rem;
+}
+#userTypeLogo:hover {
+  color: darkslategray;
+}
+.userType ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+}
+.userType ul li{
+  padding-right: 100px;
+}
+/**************** user type end *************************/
 .user {
   width: 100px;
   height: 100px;
@@ -181,49 +194,4 @@ input[type="password"] {
 
 .loginbox a:hover {
   color: #ffc107;
-}
-
-/* media queries */
-
-@media (max-width: 768px) {
-  html {
-    font-size: 55%;
-  }
-  header #menu {
-    display: block;
-  }
-
-  header .navbar {
-    position: fixed;
-    top: 6.4rem;
-    left: 0;
-    width: 100%;
-    background: #0fc4f1;
-  }
-  header .navbar ul {
-    flex-flow: column;
-    padding: 2rem 0;
-  }
-  header .navbar ul li {
-    margin: 1.5 rem 0;
-    text-align: center;
-    width: 100%;
-  }
-  header .navbar ul li a {
-    font-size: 2.5rem;
-    display: block;
-  }
-
-  header .navbar ul li a.active,
-  header .navbar ul li a.hover {
-    color: #0fc4f1;
-  }
-
-  .fa-times {
-    transform: rotate(180deg);
-  }
-
-  header .navbar.nav-toggle {
-    top: 6.4rem;
-  }
 }
