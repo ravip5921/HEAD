@@ -21,6 +21,7 @@
 html {
   font-size: 62.5%;
   overflow-x: hidden;
+  height: 100%;
 }
 
 html::-webkit-scrollbar {
@@ -28,7 +29,7 @@ html::-webkit-scrollbar {
 }
 html::-webkit-scrollbar-track {
   background: #333;
-}
+}*
 html::-webkit-scrollbar-thumb {
   background: linear-gradient(#0fc4f1, #12b3f3e0);
 }
@@ -37,7 +38,7 @@ body {
   padding: 0;
   background: url(../img/bg.jpg);
   background-size: cover;
-  height: 100vh;
+  height: 100%;
   background-position: center;
   font-family: sans-serif;
 }
@@ -101,8 +102,8 @@ header #menu {
 }
 
 .loginbox {
-  width: 320px;
-  height: 450px;
+  width: 32em;
+  height: 75em;
   background: #000;
   color: #fff;
   top: 600%;
@@ -161,8 +162,8 @@ input[type="password"] {
   font-size: 18px;
   border-radius: 20px;
 }
-/* .loginbox input[type="radio"] */
-*/ {
+
+* {
   font-size: 14px;
 }
 
