@@ -5,79 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HEAD</title>
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- font awesome cdn link-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <!-- custom css file link-->
     <link rel="stylesheet" href="css/login.css" />
   </head>
-  <body style="background-image: url('img/bg.jpg')">
-    <!--header section starts-->
-    <header>
-      <div id="menu" class="fas fa-bars"></div>
-      <a href="#" class="logo"><i class="fas fa-user-graduate"> HEAD</i></a>
-      <nav class="navbar">
-        <ul>
-          <li><a class="active" href="index.html">Login</a></li>
-        </ul>
-      </nav>
 
-      <div id="login" class="fas fa-user-circle" style="font-size: 30px"></div>
-      <form method="POST" action="php/login.php">
+  <body>
+    <nav class ="navbar">  
+      <a href="#" class="logo"><i class="fas fa-user-graduate"> HEAD</i></a>
+      <a class="active" href="index.html">Login</a>
+    </nav>
+      
+    <form method="POST" action="php/login.php">
+        <!-- User type loging in  -->
+        <div class= "userType">
+          <ul>
+            <li></li>
+            <li><i id ="userTypeLogo"class="fas fa-user-circle" style="font-size: 30px"></i></li>
+            <li><input type="radio" name="usercat" id="student" value="student" checked/><label for="student"> Student</label></li>
+            <li><input type="radio" name="usercat" id="teacher" value="teacher" /> <label for="teacher"> Teacher</label></li>
+            <li></li>
+          </ul>
+        </div>
+        <!-- Login Box-->
         <div class="loginbox">
           <img src="img/user.jpg" class="user" />
           <h1>Login Here</h1>
           <h1>Username</h1>
-          <br />
           <input type="text" name="username" placeholder="Username" />
-          <br />
-          <br />
           <h1>Password</h1>
-          <br />
           <input type="password" name="password" placeholder="Password" />
-          <!-- <input type="radio" name="usercat" id="admin" value="admin" />
-                                                  <label for="admin">Administrator</label> -->
           <input type="submit" name="loginB" value="Log In" />
         </div>
-        <div>
-          <input
-            type="radio"
-            name="usercat"
-            id="student"
-            value="student"
-            checked
-          />
-          <label for="student">Student</label>
-          <input type="radio" name="usercat" id="teacher" value="teacher" />
-          <label for="teacher">Teacher</label>
-        </div>
-      </form>
-    </header>
-    <!--header section ends-->
-
-    <!-- login form  -->
-
-    <!-- <div class="login-form"> -->
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
+    </form>
     <!-- jquery cdn link-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </body>
