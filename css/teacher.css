@@ -1,108 +1,168 @@
-:root {
-  --gradient: linear-gradient(90deg, #0fc4f1, #12b3f3e0);
+* {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
 }
+
+html{
+  width: 100%;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  width:inherit;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  align-items: center;
+}
+
+/******** HEADER ********/
 .header {
   color: whitesmoke;
-  background-color: rgb(92, 212, 212);
-  height: 170;
-}
-
-.header h1 {
-  height: 45;
-  width: 400;
-}
-
-.header h2 {
-  height: 45;
-  width: 400;
-  margin-left: 50;
+  background-color: #12b3f3e0;
+  height: auto;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  padding:1%;
+  width: inherit;
 }
 
 .top-text {
-  width: 400;
-  margin-left: 500;
+  margin:0 auto;
+  float: left;
+}
+.header .top-text .text-top1{
+  font-size: xx-large;
+}
+.header .top-text .text-top2{
+  font-size: xx-large;
 }
 
 .logout {
-  width: 50px;
-  margin-left: 15%;
-  margin-top: 30;
+  width: auto;
+  float: right;
 }
 
+.logout input{
+  margin: 0.5em;
+}
 .change_p {
-  margin-top: 20;
+  margin: 0.5em;
+  width: auto;
+  float: right;
 }
 
+/********** HEADER END *************/
 .bg {
-  background: url(../img/bg.jpg);
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-color: blueviolet;
+  background: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(8px);
+  height: auto;
+	width: 80%;
+  margin: 0 auto;
 }
 .welcome_part {
-  padding: 20;
-  height: 150;
-  font-size: 16px;
+  padding: 1%;
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
   color: white;
-  margin-left: 30;
+  margin-left: 1%;
 }
+
 .application-details {
-  margin-top: -60;
-  margin-bottom: 0;
-  margin-left: 10;
+  padding: 1%;
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
   color: white;
+  margin-left: 1%;
 }
+/********************** FORM ****************************/
 form {
-  margin-left: 50;
   color: whitesmoke;
 }
+/********* apply form ************/
 .Appli-form {
-  padding-top: 1vh;
   margin-bottom: 0;
-  margin-top: -1%;
-  padding-left: 20;
+  margin-top: 1%;
+  padding-left: 2%;
   color: white;
+  width: 50%;
+  float: left;
 }
+.form-row1{
+  width: 80%;
+  padding-top: 1%;
+}
+/******* applied *******/
 .applied {
-  margin-top: -16.5%;
-  margin-bottom: 0;
-  margin-right: 300;
   color: white;
+  margin-bottom: 0;
+  margin-top: 1%;
+  padding-left: 2%;
+  float: left;
 }
+.applied .applied-text{
+  font-size: 1.5em;
+}
+
+.submitB{
+  margin-top: 3%;
+}
+
 ::placeholder_value {
   color: black;
 }
-.generateLetter {
-  /* position: absolute; */
-  width: 30%;
-  float: right;
-  margin-top: 20%;
-  padding-top: 14%;
+.form-row2{
+  padding-top: 1%;
 }
+
+/***************** generate letter ******************/
+.generateLetter {
+  width: 30%;
+  padding-left: 2%;
+}
+.generate-label{
+  color: white;
+  font-size: 1.5em;
+}
+.generateLetter input{
+  margin-top: 1%;
+}
+/**********************/
 .Letter {
   color: white;
-  /* padding-left: 30;
-  padding-top: 10vh; */
   margin-left: 1.5%;
-  margin-top: -10;
+  margin-top: 1%;
 }
 .Letter h2 {
   width: 70%;
-  background-color: rgb(16, 141, 214);
 }
 .olContainer {
   margin-left: 1.5%;
-  /* margin-top: -10; */
 }
 .olContainer table {
   border-collapse: collapse;
 }
 .olContainer td,
 th {
-  padding: 5px;
-  width: 200px;
+  padding: 2%;
+  width: 70%;
   outline: none;
   border: 1px solid #ccc;
 }
@@ -119,14 +179,14 @@ th {
 .olContainer tr:nth-child(even) {
   background: #ccc;
 }
-
+/**************** Table ************************/
 table {
   border-collapse: collapse;
 }
 td,
 th {
-  padding: 5px;
-  width: 200px;
+  padding: 2%;
+  width: 70%;
   outline: none;
   border: 1px solid #ccc;
 }
@@ -149,148 +209,5 @@ tr:nth-child(even) {
 }
 .generateLetter h2 {
   color: white;
-  margin-top: -30%;
-}
-* {
-  font-family: "Open Sans", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border: none;
-  outline: none;
-  text-decoration: none;
-  text-transform: capitalize;
-  transition: all 0.2s linear;
-}
-*::selection {
-  background: #12b3f3e0;
-  color: fffff;
-}
-
-html {
-  font-size: 62.5%;
-  overflow-x: hidden;
-}
-
-html::-webkit-scrollbar {
-  width: 1.5rem;
-}
-html::-webkit-scrollbar-track {
-  background: #333;
-}
-html::-webkit-scrollbar-thumb {
-  background: linear-gradient(#0fc4f1, #12b3f3e0);
-}
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #7da52a;
-  background-size: cover;
-  /* height: 100vh; */
-  background-position: center;
-  font-family: sans-serif;
-  background-repeat: no-repeat;
-}
-
-header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  padding: 1.5rem 7%;
-  background: var(--gradient);
-  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
-}
-
-header .logo {
-  color: white;
-  font-size: 2.5rem;
-  padding-right: 525px;
-}
-header .navbar ul {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-}
-
-header .navbar ul li {
-  margin: 0 1rem;
-  display: inline;
-  padding-right: 475px;
-}
-
-header .navbar ul li a {
-  font-size: 2rem;
-  color: white;
-}
-
-header .navbar ul li a.active,
-header .navbar ul li a:hover {
-  color: darkslategrey;
-}
-
-header #login {
-  font-size: 3rem;
-  color: white;
-  cursor: pointer;
-}
-
-header #login:hover {
-  color: darkslategray;
-}
-header #menu {
-  font-size: 3rem;
-  color: white;
-  cursor: pointer;
-  display: none;
-}
-
-/* media queries */
-
-@media (max-width: 768px) {
-  html {
-    font-size: 55%;
-  }
-  header #menu {
-    display: block;
-  }
-
-  header .navbar {
-    position: fixed;
-    top: 6.4rem;
-    left: 0;
-    width: 100%;
-    background: #0fc4f1;
-  }
-  header .navbar ul {
-    flex-flow: column;
-    padding: 2rem 0;
-  }
-  header .navbar ul li {
-    margin: 1.5 rem 0;
-    text-align: center;
-    width: 100%;
-  }
-  header .navbar ul li a {
-    font-size: 2.5rem;
-    display: block;
-  }
-
-  header .navbar ul li a.active,
-  header .navbar ul li a.hover {
-    color: #0fc4f1;
-  }
-
-  .fa-times {
-    transform: rotate(180deg);
-  }
-
-  header .navbar.nav-toggle {
-    top: 6.4rem;
-  }
+  margin-top: 1%;
 }
