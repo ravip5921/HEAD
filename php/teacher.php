@@ -37,6 +37,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    
     <!-- font awesome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- custom css file link-->
@@ -49,20 +55,21 @@
 </head>
 
 <body>
-    <div class="header form-row">
-
-        <div class=" top-text form-group col-md-8">
-            <h1>Institute of Engineering</h1>
-            <h2>Pulchowk Campus</h2>
+    <div class="header ">
+        <div class=" top-text">
+            <div class="text-top1">Institute Of Engineering</div>
+            <div class="text-top2">Pulchowk Campus</div>
         </div>
         <div>
-            <form class="logout form-group col-md-4" action="logout.php">
-                <input class=" btn btn-primary btn-lg float-right" type="submit" value="Log Out">
-                <a class="btn btn-primary btn-lg active change_p" href="changePassword.php">Change Password</a>
+            <form class="logout" action="logout.php">
+                <input class=" btn btn-primary btn-lg " type="submit" value="Log Out">
+                <a class="btn btn-primary btn-lg change_p" href="changePassword.php">Change Password</a>
             </form>
         </div>
     </div>
+
     <div class="bg">
+        
         <div class="welcome_part col-md-8">
             <?php
             include 'connect_todb.php';
@@ -75,79 +82,60 @@
             ?>
             <!-- Search area for searching students records -->
         </div>
-
-
-        <div class="generateLetter" contenteditable="true">
-            <h2 style="background-color:rgb(16, 141, 214);width:65%">Generate Letter For:</h2>
-            <form method="POST" action="recommendLetter.php">
-                <input type="text" name="rollno" placeholder="Roll No.">
-                <br>
-                <br>
-                <input class="btn btn-primary" type="submit" value="Generate Letter">
-            </form>
-        </div>
-
-        <div class="application-details col-md-10" style="width: 50%; float: left;">
-            <h2>Enter Application details:</h2>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-
+        
+        <div class="application-details">Enter Application details:</div>
         <form method="POST" action="search_studentdb.php">
-            <div class="Appli-form" style="width:50%; float:left;">
-                <div class=" form-row1">
+            <div class="Appli-form" >
+                <div class="form-row1">
                     <label for="name">name:</label><br>
-                    <input type="text" name="name" id="name" placeholder="Enter Name">
+                    <input type="text" name="name" id="name" placeholder="Enter Name" class="form-control">
                 </div>
                 <div class="form-row1">
                     <label for="rollno">rollno:</label><br>
-                    <input type="text" name="rollno" placeholder="Enter Roll No.">
+                    <input type="text" name="rollno" placeholder="Enter Roll No." class="form-control">
                 </div>
                 <div class="form-row1">
-                    <label for="batch">Country:</label><br>
-                    <input type="text" name="batch" placeholder="Enter Batch">
+                    <label for="batch">Batch:</label><br>
+                    <input type="text" name="batch" placeholder="Enter Batch" class="form-control">
                 </div>
                 <div class="form-row1">
-                    <label for="department">Country:</label><br>
-                    <input type="text" name="department" placeholder="Enter Department">
+                    <label for="department">Department:</label><br>
+                    <input type="text" name="department" placeholder="Enter Department" class="form-control">
                 </div>
             </div>
-            <div class="applied" style="width:50%; float:right;">
-                <h2>Applied To: </h2>
+
+            <div class="applied">
+                <div class="applied-text">Applied To: </div>
                 <div class=" form-row2">
                     <label for="country">Country:</label><br>
-                    <input type="text" name="country" placeholder="Enter Country">
+                    <input type="text" name="country" placeholder="Enter Country" class="form-control">
                 </div>
                 <div class="form-row2">
-                    <label for="faculty">Country:</label><br>
-                    <input type="text" name="faculty" placeholder="Enter Faculty">
+                    <label for="faculty">Faculty:</label><br>
+                    <input type="text" name="faculty" placeholder="Enter Faculty" class="form-control">
                 </div>
                 <div class="form-row2">
-                    <label for="university">Country:</label><br>
-                    <input type="text" name="university" placeholder="Enter University">
+                    <label for="university">University:</label><br>
+                    <input type="text" name="university" placeholder="Enter University" class="form-control">
                 </div>
                 <div class="form-row2">
-                    <input class="btn btn-success btn-lg active submitB" type="submit" name="search_students" value="Search">
+                    <input class="btn btn-success btn-lg active submitB" type="submit" name="search_students" value="Search" class="form-control">
                 </div>
             </div>
         </form>
 
-
+        <div class="generateLetter" contenteditable="true">
+            <div class="generate-label">Generate Letter For:</div>
+            <form method="POST" action="recommendLetter.php">
+                <input type="text" name="rollno" placeholder="Roll No." class="form-control">
+                <input class="btn btn-primary" type="submit" value="Generate Letter">
+            </form>
+        </div>
         <br>
-        <div class="Letter" style="position:relative;width:50%; float:left;">
-            <h2>Recommendation Letter Requests</h2>
-
-
+        <div class="Letter">
+            <h2>Recommendation Letter Requests:</h2>
             <?php
             // Recommendation Letter//
-
 
             if (!$sqldb->select_db('higherEducationdb')) {
                 die("not connected to database");
@@ -249,9 +237,9 @@
                                         }
                                 ?>
                             </table>
-                        </div><?php
+        </div><?php
                                 ?>
-                            </div>
+    </div>
 
 
 
