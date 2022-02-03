@@ -1,92 +1,128 @@
 * {
-  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+html{
+  width: 100%;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 body {
-  background-position: center;
+  height: 100%;
+  width:inherit;
+  margin: 0;
+  padding: 0;
   font-family: sans-serif;
-  color: black;
+  background: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  align-items: center;
 }
 
 /******** HEADER ********/
 .header {
   color: whitesmoke;
-  background-color: maroon;
-  height: 170;
-}
-
-.header h1 {
-  height: 45;
-  width: 400;
-}
-
-.header h2 {
-  height: 45;
-  width: 400;
-  margin-left: 50;
+  background-color: #12b3f3e0;
+  height: auto;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  padding:1%;
+  width: inherit;
 }
 
 .top-text {
-  width: 400;
-  margin-left: 500;
+  margin:0 auto;
+  float: left;
+}
+.header .top-text .text-top1{
+  font-size: xx-large;
+}
+.header .top-text .text-top2{
+  font-size: xx-large;
 }
 
 .logout {
-  width: 50px;
-  margin-left: 15%;
-  margin-top: 30;
+  width: auto;
+  float: right;
 }
 
+.logout input{
+  margin: 0.5em;
+}
 .change_p {
-  margin-top: 20;
+  margin: 0.5em;
+  width: auto;
+  float: right;
 }
 
 /********** HEADER END *************/
 .bg {
-  background: url(../img/bg.jpg);
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-color: blueviolet;
+  background: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(8px);
+  height: 100%;
+	width: 80%;
+  margin: 0 auto;
 }
-
 .welcome_part {
-  padding: 20;
-  height: 150;
-  font-size: 16px;
+  padding: 1%;
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
   color: white;
-  margin-left: 30;
+  margin-left: 1%;
 }
 
 .application-details {
-  margin-bottom: 20;
-  margin-left: 30;
-}
-
-.application-details h3 {
-  width: 300;
+  padding: 1%;
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
   color: white;
+  margin-left: 1%;
 }
 
 /********** FORM **************/
-form {
-  margin-left: 20;
+.main-form {
   color: whitesmoke;
+  width: 100%;
+  margin: 0 2%;
 }
-.appli label {
+.form-row{
+  display: flex;
+}
+.form-group label{
   color: white;
-  background-color: black;
+  font-size: 1.2em;
 }
-.selecti {
-  padding-top: 25;
-  color: black;
+.university{
+  color: white;
+  width: 45%;
+  padding-right: 1%;
 }
-
-.add_application {
-  color: black;
+.country{
+  color: white;
+  width: 20%;
+}
+.faculty{
+  color: white;
+  width: 40%;
+  padding-right: 1%;
+}
+.application{
+  color: white;
+  width: 30%;
 }
 
 /***** TABLE  **********/
@@ -134,3 +170,5 @@ div {
   background: url("../img/loader.gif") no-repeat right;
   background-size: contain;
 }
+
+
