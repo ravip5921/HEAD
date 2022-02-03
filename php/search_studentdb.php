@@ -22,10 +22,9 @@
     }
 </script>
 
-<body style="background-color:#faebd7">
-
+<body>
     <div class="header form-row">
-        <div style="background-color: lightseagreen;text-align:center">
+        <div class="navbar">
             <h1>Institute of Engineering</h1>
             <h2>Pulchowk Campus</h2>
         </div>
