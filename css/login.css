@@ -54,8 +54,9 @@ body {
 }
 
 .navbar a {
-  font-size: 2rem;
+  font-size: 2em;
   color: white;
+  text-decoration: none;
 }
 
 .navbar a.active,
@@ -73,7 +74,7 @@ body {
 }
 
 .navbar .logo i{
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .navbar .active{
@@ -86,48 +87,37 @@ body {
   font-weight: bold;
 }
 /***********************  nav bar styling end  ************************************/
+
+/********************** user type *******************/
+.userType{
+  padding: 1%;
+  margin-bottom: 2em;
+}
+.userType label{
+  margin-left: 0.5em;
+  font-size: 1.5em;
+  color: white;
+}
+
+/**************** user type end *************************/
+
 /************** login box styling *****************/
 
 .loginbox {
-  width: 30rem;
-  height: 40rem;
+  width: 20em;
+  height: 30em;
   background: #000;
   color: #fff;
-  position: absolute;
-  transform: translate(180%, 40%);
   box-sizing: border-box;
-  padding: 70px 30px;
+  padding: 1em 2em;
+  margin: 0 auto;
+  margin-top: 1%;
+  border-radius: 5%;
 }
-/********************** user type *******************/
-.userType{
-  width: 100%;
-  float: right;
-  color: white;
-  background-color: #12b3f3e0;
-}
-#userTypeLogo {
-  font-size: 3rem;
-}
-#userTypeLogo:hover {
-  color: darkslategray;
-}
-.userType ul{
-  list-style-type: none;
-  padding: 0;
-  padding-left: 50%;
-  display: inline-flex;
-}
-.userType ul li{
-  padding-right: 100px;
-}
-/**************** user type end *************************/
 .user {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  position: absolute;
-  top: -50px;
-  left: calc(50% - 50px);
 }
 
 h1 {
