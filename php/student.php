@@ -1,9 +1,14 @@
 <?php session_start() ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 <link rel="stylesheet" href="jquery-editable-select.min.css" />
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="jquery-editable-select.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 
 <html>
 
@@ -21,20 +26,19 @@
 <!--  *********************************************   HEAD END   ************************************************************************** -->
 
 <body>
-
-    <div class="header form-row">
-
-        <div class=" top-text form-group col-md-8">
-            <h1>Institute of Engineering</h1>
-            <h2>Pulchowk Campus</h2>
+    <div class="header ">
+        <div class=" top-text">
+            <div class="text-top1">Institute of Engineering</div>
+            <div class="text-top2">Pulchowk Campus</div>
         </div>
         <div>
-            <form class="logout form-group col-md-4" action="logout.php">
-                <input class=" btn btn-primary btn-lg float-right" type="submit" value="Log Out">
-                <a class="btn btn-primary btn-lg active change_p" href="changePassword.php">Change Password</a>
+            <form class="logout" action="logout.php">
+                <input class=" btn btn-primary btn-lg " type="submit" value="Log Out">
+                <a class="btn btn-primary btn-lg change_p" href="changePassword.php">Change Password</a>
             </form>
         </div>
     </div>
+    
     <div class="bg">
         <div class="welcome_part col-md-8">
             <?php
@@ -54,28 +58,25 @@
             <!-- Search area for students -->
 
         </div>
-        <div class="application-details col-md-10">
-            <h3>Enter Application details:</h3>
-        </div>
-
-
-        <form method="POST" action="add_application.php" class="col-md-12">
+        <div class="application-details ">Enter Application details:</div>
+        
+        <form method="POST" action="add_application.php" class="main-form">
             <div class="form-row">
-                <div class="form-group col-md-8">
+                <div class="form-group university">
                     <label for="inputuniversity4">University:</label>
                     <input type="text" id="u" name="university" placeholder="University" class="form-control">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group country">
                     <label for="inputcountry4">Country:</label>
                     <input type="text" id="c" name="country" placeholder="Country" class="form-control">
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group faculty">
                     <label for="inputfaculty4">Faculty:</label>
                     <input type="text" id="f" name="faculty" placeholder="Faculty" class="form-control">
                 </div>
-                <div class="form-group col-md-6 appli">
+                <div class="form-group application">
                     <label for="inputstatus4">Application Status:</label>
                     <input type="text" name="status" placeholder="Application Status" class="form-control">
                 </div>
@@ -88,10 +89,10 @@
             if ($valsT = $sqldb->query($teacherQuery)) {
             ?>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group university">
                         <h3>Request for Recommendation Letter:</h3>
                     </div>
-                    <div class="form-group col-md-6 selecti ">
+                    <div class="form-group application">
                         <?php
                         if (mysqli_num_rows($valsT) > 0) {
                         ?>
@@ -109,7 +110,7 @@
                 </div>
             <?php } ?>
             <div class="form-row">
-                <div class="col-md-12 add_application">
+                <div class="form-group university">
                     <input class="btn " type="submit" value="Add Application">
                 </div>
             </div>
