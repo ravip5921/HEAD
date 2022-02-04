@@ -10,7 +10,7 @@
   transition: all 0.2s linear;
 }
 
-html{
+html {
   width: 100%;
   overflow-x: hidden;
   height: 100%;
@@ -18,7 +18,7 @@ html{
 
 body {
   height: 100%;
-  width:inherit;
+  width: inherit;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -38,18 +38,18 @@ body {
   display: flex;
   align-items: center;
   z-index: 999;
-  padding:1%;
+  padding: 1%;
   width: inherit;
 }
 
 .top-text {
-  margin:0 auto;
+  margin: 0 auto;
   float: left;
 }
-.header .top-text .text-top1{
+.header .top-text .text-top1 {
   font-size: xx-large;
 }
-.header .top-text .text-top2{
+.header .top-text .text-top2 {
   font-size: xx-large;
 }
 
@@ -58,7 +58,7 @@ body {
   float: right;
 }
 
-.logout input{
+.logout input {
   margin: 0.5em;
 }
 .change_p {
@@ -69,10 +69,10 @@ body {
 
 /********** HEADER END *************/
 .bg {
-  background: rgba(0, 0, 0, 0.5); 
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
   height: 100%;
-	width: 80%;
+  width: 80%;
   margin: 0 auto;
 }
 .welcome_part {
@@ -99,43 +99,56 @@ body {
   width: 100%;
   margin: 0 2%;
 }
-.form-row{
+.form-row {
   display: flex;
 }
-.form-group label{
+.form-group label {
   color: white;
   font-size: 1.2em;
 }
-.university{
+.university {
   color: white;
   width: 45%;
   padding-right: 1%;
 }
-.country{
+.country {
   color: white;
   width: 20%;
 }
-.faculty{
+.faculty {
   color: white;
   width: 40%;
   padding-right: 1%;
 }
-.application{
+.application {
   color: white;
   width: 30%;
 }
-
+/********* recommendation letter ********/
+.recomendation-label {
+  color: white;
+  float: left;
+  width: 45%;
+  padding-right: 1%;
+}
+.dropBox {
+  color: black;
+  float: left;
+  width: 30%;
+  margin-top: 1.5%;
+  margin-left: 2%;
+}
 /***** TABLE  **********/
 
 table {
   border-collapse: collapse;
-  margin: 2%;
+  margin: 4%;
 }
 
 td,
 th {
   padding: 1%;
-  width: 30%;
+  width: 10%;
   outline: none;
   border: 1px solid #ccc;
 }
@@ -170,5 +183,3 @@ div {
   background: url("../img/loader.gif") no-repeat right;
   background-size: contain;
 }
-
-

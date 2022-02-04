@@ -89,10 +89,10 @@
             if ($valsT = $sqldb->query($teacherQuery)) {
             ?>
                 <div class="form-row">
-                    <div class="form-group university">
+                    <div class="form-group recommendation-label">
                         <h3>Request for Recommendation Letter:</h3>
                     </div>
-                    <div class="form-group application">
+                    <div class="form-group dropBox  form-control">
                         <?php
                         if (mysqli_num_rows($valsT) > 0) {
                         ?>
