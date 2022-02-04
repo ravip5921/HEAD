@@ -154,11 +154,11 @@
                 ?>
                         <div class="olContainer">
                             <br>
-                            <button class="btn btn-success" onclick="displayToggle(this)">
+                            <button class="btn btn-success btn-primary" onclick="displayToggle(this)">
 
                                 <li> <?php echo "$rollnoT"; ?></li>
                             </button>
-                            <div class="visi">
+                            <div class="visi form-control">
                                 <table>
                                     <tr>
 
@@ -201,7 +201,7 @@
                             echo "<br>Error running query";
                         }
                         ?>
-                        <button class="btn btn-info" onclick="displayToggle(this)">Approved Requests</button>
+                        <button class="btn btn-info btn-primary" onclick="displayToggle(this)">Approved Requests</button>
                         <div class="Approved" style="display:none">
                             <?php
                             $tableQuery = "SELECT rollno,uname,country,faculty FROM university WHERE recommReq='$name' AND status!='approved' AND recStatus='approved' ORDER BY rollno";
