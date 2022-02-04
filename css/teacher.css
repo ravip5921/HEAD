@@ -71,7 +71,7 @@ body {
 .bg {
   background: rgba(0, 0, 0, 0.5); 
   backdrop-filter: blur(8px);
-  height: auto;
+  height: 100%;
 	width: 80%;
   margin: 0 auto;
 }
@@ -152,6 +152,11 @@ form {
 }
 .Letter h2 {
   width: 70%;
+}
+
+.btn-info{
+  color: white;
+  margin-top: 1%;
 }
 .olContainer {
   margin-left: 1.5%;
