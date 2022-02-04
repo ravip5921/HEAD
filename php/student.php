@@ -111,7 +111,7 @@
             <?php } ?>
             <div class="form-row">
                 <div class="form-group university">
-                    <input class="btn " type="submit" value="Add Application">
+                    <input class="btn btn-primary" type="submit" value="Add Application">
                 </div>
             </div>
         </form>
