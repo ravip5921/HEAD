@@ -129,13 +129,13 @@ body {
 
 table {
   border-collapse: collapse;
-  margin: 45vh;
+  margin: 2%;
 }
 
 td,
 th {
-  padding: 5px;
-  width: 200px;
+  padding: 1%;
+  width: 30%;
   outline: none;
   border: 1px solid #ccc;
 }
@@ -163,7 +163,7 @@ div {
   border-left: 1px solid #333;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
-  padding: 2px;
+  padding: 0.5%;
 }
 
 .processing {
