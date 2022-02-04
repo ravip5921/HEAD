@@ -23,12 +23,14 @@
 </script>
 
 <body>
+   
     <div class="header form-row">
         <div class="navbar">
             <h1>Institute of Engineering</h1>
             <h2>Pulchowk Campus</h2>
         </div>
     </div>
+     <div class="bg">
     <?php
     require 'connect_todb.php';
 
@@ -163,6 +165,7 @@
                             // header("Refresh:1; url=teacher.php");
                         }
                             ?>
+                            </div>
 </body>
 
 </html>

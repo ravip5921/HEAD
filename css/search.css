@@ -10,19 +10,40 @@
   transition: all 0.2s linear;
 }
 
-html{
+html {
   width: 100%;
   overflow-x: hidden;
   height: 100%;
 }
 
-body{
-  background-color:#faebd7;
+body {
+  background-color: #faebd7;
+  background: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  align-items: center;
+  height: 100%;
 }
-
-.navbar{
+.header {
+  margin: 0;
+}
+.form-row {
+  margin: 0;
+}
+.bg {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1%;
+}
+.navbar {
   background-color: lightseagreen;
-  text-align:center;
+  text-align: center;
   margin: 0;
   padding: 0;
 }
@@ -35,7 +56,7 @@ table {
 
 td,
 th {
-  padding:5px;
+  padding: 5px;
   width: 200px;
   outline: none;
   border: 1px solid #ccc;
