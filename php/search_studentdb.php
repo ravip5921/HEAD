@@ -57,11 +57,11 @@
         } else {
             if ($batch !== '') {
                 $search_criterias_student[] = "`student`.`rollno` LIKE '$batch%'";
-                $search_criterias_university[] = "`university`.`rollno` LIKE '$batch%'";
+                $search_criterias_university[] = "`recommendation`.`rollno` LIKE '$batch%'";
             }
             if ($department !== '') {
                 $search_criterias_student[] = "`student`.`rollno` LIKE '%$department%'";
-                $search_criterias_university[] = "`university`.`rollno` LIKE '%$department%'";
+                $search_criterias_university[] = "`recommendation`.`rollno` LIKE '%$department%'";
             }
         }
         if ($name !== '') {
@@ -70,20 +70,20 @@
 
 
         if ($university !== '') {
-            $search_criterias_university[] = "`university`.`uname` = '$university'";
+            $search_criterias_university[] = "`recommendation`.`uname` = '$university'";
         }
         if ($faculty !== '') {
-            $search_criterias_university[] = "`university`.`faculty` = '$faculty'";
+            $search_criterias_university[] = "`recommendation`.`faculty` = '$faculty'";
         }
         if ($country !== '') {
-            $search_criterias_university[] = "`university`.`country` = '$country'";
+            $search_criterias_university[] = "`recommendation`.`country` = '$country'";
         }
 
         //SELECT student.name, ... FROM student INNER JOIN university ON student.rollno = university.rollno
 
         //$search_query = "SELECT * FROM `student` , `university` WHERE ";
 
-        $search_query = "SELECT * FROM student INNER JOIN university ON student.rollno = university.rollno WHERE ";
+        $search_query = "SELECT * FROM student INNER JOIN recommendation ON student.rollno = recommendation.rollno WHERE ";
 
         $search_criteria = array_merge($search_criterias_student, $search_criterias_university);
         $search_criteria = implode(" AND ", $search_criteria);

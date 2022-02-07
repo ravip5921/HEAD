@@ -7,7 +7,7 @@ if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
     echo "$value -$column - $id";
-    $editQuery = "UPDATE university SET $column = :value WHERE md5(id) = :id LIMIT 1";
+    $editQuery = "UPDATE recommendation SET $column = :value WHERE md5(id) = :id LIMIT 1";
     $query = $db->prepare($editQuery);
     $query->bindParam('value', $value);
     $query->bindParam('id', $id);

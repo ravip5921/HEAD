@@ -128,7 +128,11 @@
             <div class="generate-label">Generate Letter For:</div>
             <form method="POST" action="recommendLetter.php">
                 <input type="text" name="rollno" placeholder="Roll No." class="form-control">
+                <input type="text" name="university" placeholder="University" class="form-control">
+                <input type="hidden" name="teacher" value ="<?php $_SESSION["name"];?>">
+                <input type="hidden" name="recdate" value ="zd">
                 <input class="btn btn-primary" type="submit" value="Generate Letter">
+                
             </form>
         </div>
         <br>
@@ -141,7 +145,7 @@
                 die("not connected to database");
             }
             $name = $_SESSION['name'];
-            $rollnoQuery = "SELECT rollno FROM university GROUP BY rollno HAVING COUNT(id) >=1";
+            $rollnoQuery = "SELECT rollno FROM recommedation GROUP BY rollno HAVING COUNT(id) >=1";
             if ($vals = $sqldb->query($rollnoQuery)) {
             ?>
                 <?php
@@ -169,7 +173,7 @@
 
                                     <?php
                                     $rollnoT = $vals_row['rollno'];
-                                    $tableQuery = "SELECT uname,country,faculty FROM university WHERE rollno = '$rollnoT' AND recommReq='$name' AND status!='approved' AND recStatus='pending'";
+                                    $tableQuery = "SELECT uname,country,faculty FROM recommendation WHERE rollno = '$rollnoT' AND teacher='$name' AND uniastatus!='approved' AND recstatus='pending'";
 
                                     if ($valsI = $sqldb->query($tableQuery)) {
 
@@ -198,19 +202,20 @@
                                 echo "</ul>";
                             }
                         } else {
-                            echo "<br>Error running query";
+                            // echo "<br>Error running query";
                         }
                         ?>
                         <button class="btn btn-info" onclick="displayToggle(this)">Approved Requests</button>
                         <div class="Approved" style="display:none">
                             <?php
-                            $tableQuery = "SELECT rollno,uname,country,faculty FROM university WHERE recommReq='$name' AND status!='approved' AND recStatus='approved' ORDER BY rollno";
+                            $tableQuery = "SELECT rollno,uname,country,faculty,recdate FROM recommendation WHERE teacher='$name' AND uniastatus!='approved' AND recstatus='approved' ORDER BY rollno";
                             ?><table>
                                 <tr>
                                     <th>Roll No.</th>
                                     <th>University</th>
                                     <th>Country</th>
                                     <th>Faculty</th>
+                                    <th>Approved Date</th>
                                 </tr><?php
                                         if ($valsI = $sqldb->query($tableQuery)) {
 
@@ -221,12 +226,14 @@
                                                     $rollnoVt = $valsI_row['rollno'];
                                                     $countryT = $valsI_row['country'];
                                                     $facultyT = $valsI_row['faculty'];
+                                                    $recApprovDateT = $vals_row['recdate'];
                                         ?>
                                             <tr>
                                                 <td><?php echo "$rollnoVt"; ?></td>
                                                 <td><?php echo "$unameT"; ?></td>
                                                 <td><?php echo "$countryT"; ?></td>
                                                 <td><?php echo "$facultyT"; ?></td>
+                                                <td><?php echo "$recApprovDateT"; ?></td>
                                             </tr>
                                 <?php
                                                 }

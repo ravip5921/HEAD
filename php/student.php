@@ -122,7 +122,7 @@
             die("not connected to database");
         }
         $sn = 1;
-        $applicationQuery = "SELECT uname,country,faculty,status,id,recommReq,recStatus FROM university WHERE rollno='$rollno'";
+        $applicationQuery = "SELECT uname,country,faculty,uniastatus,recdate,id,teacher,recstatus FROM recommendation WHERE rollno='$rollno'";
         if ($vals = $sqldb->query($applicationQuery)) {
 
         ?>
@@ -136,6 +136,7 @@
                     <th>Status</th>
                     <th>Teacher</th>
                     <th>Recommendation</th>
+                    <th>Date</th>
                 </tr>
                 <?php
 
@@ -145,9 +146,10 @@
                         $unameT = $vals_row['uname'];
                         $countryT = $vals_row['country'];
                         $facultyT = $vals_row['faculty'];
-                        $statusT = $vals_row['status'];
-                        $teacherT = $vals_row['recommReq'];
-                        $recStatT = $vals_row['recStatus'];
+                        $statusT = $vals_row['uniastatus'];
+                        $teacherT = $vals_row['teacher'];
+                        $recStatT = $vals_row['recstatus'];
+                        $dateT = $vals_row['recdate'];
                         $id = md5($vals_row['id']);
                 ?>
 
@@ -157,23 +159,41 @@
                                 php echo $sn
                             </div>
                         </td> -->
-                            <td>
-                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'uname','<?php echo $id ?>')"><?php echo $unameT; ?></div>
+                            <!-- <td>
+                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'uname','<?/*php echo $id */?>')"><?/*php echo $unameT;*/ ?></div>
                             </td>
                             <td>
-                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'faculty','<?php echo $id ?>')"><?php echo $facultyT; ?></div>
+                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'faculty','<?/*php echo $id*/ ?>')"><?/*php echo $facultyT;*/ ?></div>
                             </td>
                             <td>
-                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'country','<?php echo $id ?>')"><?php echo $countryT; ?></div>
+                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'country','<?/*php echo $id*/ ?>')"><?/*php echo $countryT;*/ ?></div>
                             </td>
                             <td>
-                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'status','<?php echo $id ?>')"><?php echo $statusT; ?></div>
+                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'uniastatus','<?/*php echo $id*/ ?>')"><?/*php echo $statusT;*/ ?></div>
                             </td>
                             <td>
-                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'recommReq','<?php echo $id ?>')"><?php echo $teacherT; ?></div>
+                                <div contenteditable="false" onclick="activateVar(this)" onblur="editVar(this,'teacher','<?/*php echo $id*/ ?>')"><?/*php echo $teacherT;*/ ?></div>
+                            </td> -->
+                            <td>
+                                <div contenteditable="false"><?php echo $unameT; ?></div>
+                            </td>
+                            <td>
+                                <div contenteditable="false"><?php echo $facultyT; ?></div>
+                            </td>
+                            <td>
+                                <div contenteditable="false"><?php echo $countryT; ?></div>
+                            </td>
+                            <td>
+                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'uniastatus','<?php echo $id ?>')"><?php echo $statusT; ?></div>
+                            </td>
+                            <td>
+                                <div contenteditable="false"><?php echo $teacherT; ?></div>
                             </td>
                             <td>
                                 <div contenteditable="false"><?php echo $recStatT; ?></div>
+                            </td>
+                            <td>
+                                <div contenteditable="false"><?php echo $dateT; ?></div>
                             </td>
 
 

@@ -1,5 +1,5 @@
 <?php
-	$sqldb = new mysqli('localhost','root','sqlserver@123') or die('Couldn\'t connect to the sql server');
+	$sqldb = new mysqli('localhost','root','') or die('Couldn\'t connect to the sql server');
 	if ($sqldb->query("CREATE DATABASE higherEducationdb")){
 		echo "<p>Created database higherEducationdb";
 	}
@@ -31,7 +31,7 @@
 	}
 	
 	//teacher table
-	$createtable = "CREATE TABLE teacher (name varchar($name_len) PRIMARY KEY, department varchar($dep_len), 
+	$createtable = "CREATE TABLE teacher (uname varchar($name_len) PRIMARY KEY, department varchar($dep_len), 
 						post varchar($post_len), password varchar($password_len))";
 	if ($sqldb->query($createtable)){
 		echo "<p>Created table teacher";
@@ -41,7 +41,8 @@
 	}
 	
 	//recommendation table
-	$createtable = "CREATE TABLE recommendation (rollno varchar($rollno_len), teacher varchar($name_len), status varchar($rec_status_len))";
+	$createtable = "CREATE TABLE recommendation (id MEDIUMINT NOT NULL AUTO_INCREMENT KEY,rollno varchar($rollno_len), teacher varchar($name_len), recstatus varchar($rec_status_len), 
+		recdate date, uname varchar($university_len),country varchar($country_len),faculty varchar($faculty_len), uniastatus varchar($rec_status_len))";
 	if ($sqldb->query($createtable)){
 		echo "<p>Created table recommendation</p>";
 	}
@@ -58,7 +59,16 @@
 	else{
 		die("Couldn\'t create table department_alias");
 	}
-	
+	/*
+	The id is required to uniquely distinguish between different rows of the applications table in student.php 
+	*/
+	// $tableIdQuery = "ALTER TABLE recommmendation ADD id MEDIUMINT NOT NULL AUTO_INCREMENT KEY";
+	// if ($sqldb->query($tableIdQuery)) {
+	// 	echo "<p>Id added to table recommmedation";
+	// } else {
+	// 	die("Couldn\'t add id to table recommendation");
+	// }
+
 	/* //post_alias table
 	$createtable = "CREATE TABLE post_alias (alias varchar($post_alias_len) PRIMARY KEY, name varchar($post_len))";
 	if ($sqldb->query($createtable)){
@@ -69,13 +79,13 @@
 	} */
 	
 	//university table
-	$createtable = "CREATE TABLE university (uname varchar($university_len),country varchar($country_len),faculty varchar($faculty_len),
+	/* $createtable = "CREATE TABLE university (uname varchar($university_len),country varchar($country_len),faculty varchar($faculty_len),
 	                  rollno varchar($rollno_len), status varchar($university_status_len))";
 	if ($sqldb->query($createtable)){
 		echo "<p>Created table university</p>";
 	}
 	else{
 		die("Couldn\'t create table university");
-	}
+	} */
 
 ?>
