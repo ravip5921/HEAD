@@ -23,7 +23,6 @@
     $university = $_POST["university"];
     $faculty = $_POST["faculty"];
     $country = $_POST["country"];
-    $status = $_POST["status"];
     $RecommendToTeacher = $_POST["requestR"];
     if ($university == "" && $faculty == "" && $country == "") {
     ?>
@@ -37,7 +36,7 @@
     <?php
         echo "$name ,$dob ,$rollno applied for $faculty at $university in $country";
         // $entryQuery = "INSERT INTO recommedation (`uname`,`country`,`rollno`,`faculty`,`teacher`,`uniastatus`,`recstatus`,`recdate`) VALUES ('$university','$country','$rollno','$faculty','$RecommendToTeacher','$status','pending',NULL)";
-        $entryQuery = "INSERT INTO recommedation (`rollno`,`teacher`,`recstatus`,`recdate`,`uname`,`country`,`faculty`,`uniastatus`) VALUES ('$rollno','$RecommendToTeacher','pending', NULL ,'$university','$country','$faculty','$status')";
+        $entryQuery = "INSERT INTO recommendation (`rollno`,`teacher`,`recstatus`,`recdate`,`uname`,`country`,`faculty`,`uniastatus`) VALUES ('$rollno','$RecommendToTeacher','pending', NULL ,'$university','$country','$faculty','pending')";
 
         if($sqldb->query($entryQuery))
             {

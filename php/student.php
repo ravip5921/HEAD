@@ -76,10 +76,6 @@
                     <label for="inputfaculty4">Faculty:</label>
                     <input type="text" id="f" name="faculty" placeholder="Faculty" class="form-control">
                 </div>
-                <div class="form-group application">
-                    <label for="inputstatus4">Application Status:</label>
-                    <input type="text" name="status" placeholder="Application Status" class="form-control">
-                </div>
             </div>
             <?php
             if (!$sqldb->select_db('higherEducationdb')) {
