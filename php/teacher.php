@@ -145,11 +145,14 @@
                 die("not connected to database");
             }
             $name = $_SESSION['name'];
-            $rollnoQuery = "SELECT rollno FROM recommedation GROUP BY rollno HAVING COUNT(id) >=1";
+            $rollnoQuery = "SELECT `rollno` FROM `recommendation` WHERE 1 GROUP BY `rollno`";
+            
             if ($vals = $sqldb->query($rollnoQuery)) {
+                
             ?>
                 <?php
                 if (mysqli_num_rows($vals) > 0) {
+                    
                     echo "<ul>";
                     while ($vals_row = mysqli_fetch_assoc($vals)) {
 
@@ -202,7 +205,7 @@
                                 echo "</ul>";
                             }
                         } else {
-                            // echo "<br>Error running query";
+                            echo "<br>Error running query";
                         }
                         ?>
                         <button class="btn btn-info" onclick="displayToggle(this)">Approved Requests</button>
