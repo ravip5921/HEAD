@@ -21,6 +21,36 @@
 	$university_status_len = 3;
 	
 	$sqldb->select_db("higherEducationdb");
+
+	//University Status table
+	$createtable = "CREATE TABLE universityStatus(id tinyint PRIMARY KEY,status varchar(50));";
+	if ($sqldb->query($createtable)){
+		//add elements 
+		echo "<p>Created table universityStatus</p>";
+	}
+	else{
+		die("Couldn\'t create table universityStatus");
+	}
+	//Teacher posts table
+	$createtable = "CREATE TABLE teacherPosts(id tinyint PRIMARY KEY,status varchar(50));";
+	if ($sqldb->query($createtable)){
+		//add elements 
+		echo "<p>Created table teacherPosts</p>";
+	}
+	else{
+		die("Couldn\'t create table teacherPosts");
+	}
+	//department_alias table
+	$createtable = "CREATE TABLE department_alias (alias varchar($dep_alias_len) PRIMARY KEY, name varchar($dep_len))";
+	if ($sqldb->query($createtable)){
+		//add elements 
+		echo "<p>Created table department_alias</p>";
+	}
+	else{
+		die("Couldn\'t create table department_alias");
+	}
+
+
 	//student table
 	$createtable = "CREATE TABLE student (rollno varchar($rollno_len) PRIMARY KEY, name varchar($name_len), password varchar($password_len), dob date)";
 	if ($sqldb->query($createtable)){
@@ -31,18 +61,18 @@
 	}
 	
 	//teacher table
-	$createtable = "CREATE TABLE teacher (uname varchar($name_len) PRIMARY KEY, department varchar($dep_len), 
-						post varchar($post_len), password varchar($password_len))";
+	$createtable = "CREATE TABLE teacher (uname varchar($name_len) PRIMARY KEY, department_alias varchar($dep_alias_len), 
+						post tinyint, password varchar($password_len), FOREIGN KEY department_alias references department_alias(alias),FOREIGN KEY post references teacherPosts(id)";
 	if ($sqldb->query($createtable)){
 		echo "<p>Created table teacher";
 	}
 	else{
+		
 		die("Couldn\'t create table teacher");
 	}
-	
 	//recommendation table
 	$createtable = "CREATE TABLE recommendation (id MEDIUMINT NOT NULL AUTO_INCREMENT KEY,rollno varchar($rollno_len), teacher varchar($name_len), recstatus varchar($rec_status_len), 
-		recdate date, uname varchar($university_len),country varchar($country_len),faculty varchar($faculty_len), uniastatus varchar($rec_status_len))";
+		recdate date, uname varchar($university_len),country varchar($country_len),faculty varchar($faculty_len), uniastatus tinyint, FOREIGN KEY rollno references student(rollno),FOREIGN KEY teacher references teacher(uname),FOREIGN KEY uniastatus references universityStatus(id)";
 	if ($sqldb->query($createtable)){
 		echo "<p>Created table recommendation</p>";
 	}
@@ -50,15 +80,8 @@
 		die("Couldn\'t create table recommendation");
 	}
 	
-	//department_alias table
-	$createtable = "CREATE TABLE department_alias (alias varchar($dep_alias_len) PRIMARY KEY, name varchar($dep_len))";
-	if ($sqldb->query($createtable)){
-		//add elements 
-		echo "<p>Created table department_alias</p>";
-	}
-	else{
-		die("Couldn\'t create table department_alias");
-	}
+	
+	
 	/*
 	The id is required to uniquely distinguish between different rows of the applications table in student.php 
 	*/
