@@ -72,10 +72,10 @@
             }
         } elseif ($userType == "teacher") {
             echo "<br>Teacher Profile";
-            if ($vals = $sqldb->query("SELECT department FROM teacher WHERE password = '$password' AND uname = '$username'")) {
+            if ($vals = $sqldb->query("SELECT department_alias FROM teacher WHERE password = '$password' AND uname = '$username'")) {
 
                 if ($vals_row = mysqli_fetch_assoc($vals)) {
-                    $department = $vals_row['department'];
+                    $department = $vals_row['department_alias'];
 
                     echo "<br>$department  logged in";
                     $_SESSION["name"] = $username;
