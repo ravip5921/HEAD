@@ -17,7 +17,7 @@
 	$post_len = 50;
 	$max_teacher_size = 4;
 	$country_len = 50;
-	$rec_status_len = 3;
+	$rec_status_len = 10;
 	$university_status_len = 3;
 	
 	$sqldb->select_db("higherEducationdb");

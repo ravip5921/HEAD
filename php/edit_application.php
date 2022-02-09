@@ -1,13 +1,13 @@
 <?php
 include "dbEdit.php";
-sleep(1);
+// sleep(1);
 if (isset($_POST['id'])) {
     $value = $_POST['value'];
     $column = $_POST['column'];
     $id = $_POST['id'];
 
     echo "$value -$column - $id";
-    $editQuery = "UPDATE recommendation SET $column = :value WHERE md5(id) = :id LIMIT 1";
+    $editQuery = "UPDATE recommendation SET $column = :value WHERE $id = :id LIMIT 1";
     $query = $db->prepare($editQuery);
     $query->bindParam('value', $value);
     $query->bindParam('id', $id);

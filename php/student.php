@@ -1,14 +1,13 @@
 <?php session_start() ?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" href="jquery-editable-select.min.css" />
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="jquery-editable-select.min.js"></script>
+
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
 
 <html>
 
@@ -77,13 +76,14 @@
                     <input type="text" id="f" name="faculty" placeholder="Faculty" class="form-control">
                 </div>
             </div>
-            <div class="form-row">
+            <!-- <div class="form-row">
                 <div class="form-group status">
                     <label for="inputstatus4">Application Status:</label>
                     <input type="text" id="f" name="status" placeholder="status" class="form-control">
                 </div>
-            </div>
+            </div> -->
             <?php
+            
             if (!$sqldb->select_db('higherEducationdb')) {
                 die("not connected to database");
             }
@@ -152,7 +152,7 @@
                         $teacherT = $vals_row['teacher'];
                         $recStatT = $vals_row['recstatus'];
                         $dateT = $vals_row['recdate'];
-                        $id = md5($vals_row['id']);
+                        $id = $vals_row['id'];
                 ?>
 
                         <tr>
@@ -172,9 +172,9 @@
                             </td>
                             <td>
                                 <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'uniastatus','<?/*php echo $id*/ ?>')"><?/*php echo $statusT;*/ ?></div>
-                            </td>
-                            <td>
-                                <div contenteditable="false" onclick="activateVar(this)" onblur="editVar(this,'teacher','<?/*php echo $id*/ ?>')"><?/*php echo $teacherT;*/ ?></div>
+                            </td>-->
+                             <!-- <td>
+                                <div contenteditable="false" onclick="activateVar(this)" onblur="editVar(this,'teacher','<?//php echo $id ?>')"><?//php echo $teacherT; ?></div>
                             </td> -->
                             <td>
                                 <div contenteditable="false"><?php echo $unameT; ?></div>
@@ -185,9 +185,68 @@
                             <td>
                                 <div contenteditable="false"><?php echo $countryT; ?></div>
                             </td>
+                            <!-- <td>
+                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'uniastatus','<?php //echo $id ?>')"><?php //echo $statusT; ?></div>
+                            </td> -->
                             <td>
-                                <div contenteditable="true" onclick="activateVar(this)" onblur="editVar(this,'uniastatus','<?php echo $id ?>')"><?php echo $statusT; ?></div>
-                            </td>
+                            <?php
+            if (!$sqldb->select_db('higherEducationdb')) {
+                die("not connected to database");
+            }
+            $teacherQuery = "SELECT id,status FROM universityStatus ORDER BY id ASC";
+            if ($valsT = $sqldb->query($teacherQuery)) {
+            ?>
+                <div class="form-row">
+                    <div class="form-group dropBox  form-control">
+                        <?php
+                        if (mysqli_num_rows($valsT) > 0) {
+                        ?>
+                            <select id="editable_Select_Uni" name="status" onChange = "editUniStat(<?php echo $id?>)">
+                            <script>
+                                function editUniStat(id) {
+                                            console.log("bolayo");
+                                            var myId = document.getElementById("editable_Select_Uni");
+                                            
+                                            var value = myId.options[myId.selectedIndex].value;
+                                            
+                                            $.ajax({
+                                                url: "edit_application.php",
+                                                type: "post",
+                                                data: {
+                                                value: value,
+                                                column: 'uniastatus',
+                                                id: id,
+                                                },
+                                                success: function (php_result) {
+                                                console.log(php_result);
+                                                
+                                                },
+                                            });
+                                            }
+                            </script>
+                                <?php
+                                while ($vals_rowT = mysqli_fetch_assoc($valsT)) {
+                                ?>
+                                    <option value="<?php echo $vals_rowT['id'];?>" <?php 
+                                    if ($vals_rowT['id'] == $statusT) 
+                                    {
+                                        echo"selected";
+                                    } 
+                                    // else 
+                                    // {
+                                        
+                                    // } 
+                                    
+                                    ?>><?php echo $vals_rowT['status']; ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        <?php } ?>
+                    </div>
+                </div>
+            <?php } ?>
+                    </td>
                             <td>
                                 <div contenteditable="false"><?php echo $teacherT; ?></div>
                             </td>

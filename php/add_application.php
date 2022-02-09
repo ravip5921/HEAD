@@ -23,9 +23,9 @@
     $university = $_POST["university"];
     $faculty = $_POST["faculty"];
     $country = $_POST["country"];
-    $status = $_POST["status"];
+    
     $RecommendToTeacher = $_POST["requestR"];
-    if ($university == "" or $faculty == "" or $country == "" or $status == "") {
+    if ($university == "" or $faculty == "" or $country == "") {
     ?>
         <script>
             alert("Enter details");
@@ -35,9 +35,13 @@
     } else {
     ?><h1>Applying.........</h1>
     <?php
-        echo "$name ,$dob ,$rollno applied for $faculty at $university in $country and the application status is $status";
+        $statusQuery = "SELECT id from universityStatus WHERE status = 'Not Applied'";
+        $stat = $sqldb->query($statusQuery);
+        $statusRes = mysqli_fetch_assoc($stat);
+        $statusId = $statusRes['id'];
+        echo "$name ,$dob ,$rollno applied for $faculty at $university in $country and the application status is $statusId";
         // $entryQuery = "INSERT INTO recommedation (`uname`,`country`,`rollno`,`faculty`,`teacher`,`uniastatus`,`recstatus`,`recdate`) VALUES ('$university','$country','$rollno','$faculty','$RecommendToTeacher','$status','pending',NULL)";
-        $entryQuery = "INSERT INTO recommendation (`rollno`,`teacher`,`recstatus`,`recdate`,`uname`,`country`,`faculty`,`uniastatus`) VALUES ('$rollno','$RecommendToTeacher','pending', NULL ,'$university','$country','$faculty',$status)";
+        $entryQuery = "INSERT INTO recommendation (`rollno`,`teacher`,`recstatus`,`recdate`,`uname`,`country`,`faculty`,`uniastatus`) VALUES ('$rollno','$RecommendToTeacher','pending', NULL ,'$university','$country','$faculty',$statusId)";
 
         if($sqldb->query($entryQuery))
             {
