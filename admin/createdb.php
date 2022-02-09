@@ -62,7 +62,7 @@
 	
 	//teacher table
 	$createtable = "CREATE TABLE teacher (uname varchar($name_len) PRIMARY KEY, department_alias varchar($dep_alias_len), 
-						post tinyint, password varchar($password_len), FOREIGN KEY department_alias references department_alias(alias),FOREIGN KEY post references teacherPosts(id)";
+						post tinyint, password varchar($password_len), FOREIGN KEY (department_alias) references department_alias(alias),FOREIGN KEY (post) references teacherPosts(id))";
 	if ($sqldb->query($createtable)){
 		echo "<p>Created table teacher";
 	}
@@ -72,7 +72,7 @@
 	}
 	//recommendation table
 	$createtable = "CREATE TABLE recommendation (id MEDIUMINT NOT NULL AUTO_INCREMENT KEY,rollno varchar($rollno_len), teacher varchar($name_len), recstatus varchar($rec_status_len), 
-		recdate date, uname varchar($university_len),country varchar($country_len),faculty varchar($faculty_len), uniastatus tinyint, FOREIGN KEY rollno references student(rollno),FOREIGN KEY teacher references teacher(uname),FOREIGN KEY uniastatus references universityStatus(id)";
+		recdate date, uname varchar($university_len),country varchar($country_len),faculty varchar($faculty_len), uniastatus tinyint, FOREIGN KEY (rollno) references student(rollno),FOREIGN KEY (teacher) references teacher(uname),FOREIGN KEY (uniastatus) references universityStatus(id))";
 	if ($sqldb->query($createtable)){
 		echo "<p>Created table recommendation</p>";
 	}

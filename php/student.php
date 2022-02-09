@@ -77,6 +77,12 @@
                     <input type="text" id="f" name="faculty" placeholder="Faculty" class="form-control">
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group status">
+                    <label for="inputstatus4">Application Status:</label>
+                    <input type="text" id="f" name="status" placeholder="status" class="form-control">
+                </div>
+            </div>
             <?php
             if (!$sqldb->select_db('higherEducationdb')) {
                 die("not connected to database");
