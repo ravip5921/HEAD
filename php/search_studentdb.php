@@ -45,7 +45,7 @@
         $department = $_POST["department"];
 
         $university = $_POST["university"];
-        $uniStatus = $_POST["status"]
+        $uniStatus = $_POST["status"];
         $faculty = $_POST["faculty"];
         $country = $_POST["country"];
 
@@ -78,6 +78,12 @@
         }
         if ($country !== '') {
             $search_criterias_university[] = "`recommendation`.`country` = '$country'";
+        }
+        if ($uniStatus !== '') {
+            $result = $sqldb->query("SELECT id FROM universityStatus WHERE status = '$uniStatus'");
+            $res = mysqli_fetch_assoc($result);
+            $uniStatus = $res['id'];
+            $search_criterias_university[] = "`recommendation`.`uniastatus` = $uniStatus";
         }
 
         //SELECT student.name, ... FROM student INNER JOIN university ON student.rollno = university.rollno
