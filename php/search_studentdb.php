@@ -45,6 +45,7 @@
         $department = $_POST["department"];
 
         $university = $_POST["university"];
+        $uniStatus = $_POST["status"]
         $faculty = $_POST["faculty"];
         $country = $_POST["country"];
 
@@ -83,7 +84,7 @@
 
         //$search_query = "SELECT * FROM `student` , `university` WHERE ";
 
-        $search_query = "SELECT * FROM student INNER JOIN recommendation ON student.rollno = recommendation.rollno WHERE ";
+        $search_query = "SELECT * FROM student INNER JOIN recommendation ON student.rollno = recommendation.rollno INNER JOIN universityStatus ON recommendation.uniastatus= universitystatus.id WHERE ";
 
         $search_criteria = array_merge($search_criterias_student, $search_criterias_university);
         $search_criteria = implode(" AND ", $search_criteria);
@@ -106,6 +107,7 @@
                             <th style="text-align:center;">Name</th>
                             <th style="text-align:center;">Date of Birth</th>
                             <th style="text-align:center;">University</th>
+                            <th style="text-align:center;">Status</th>
                             <th style="text-align:center;">Faculty</th>
                             <th style="text-align:center;">Country</th>
                         </tr>
@@ -117,6 +119,7 @@
                             $nameV = $result_row['name'];
                             $dobV = $result_row['dob'];
                             $unameV = $result_row['uname'];
+                            $statusV = $result_row['status'];
                             $facultyV = $result_row['faculty'];
                             $countryV = $result_row['country'];
                             if ($rn != $rollnoV) {
@@ -131,6 +134,7 @@
                                 <td style="text-align:center;"><?php echo "$nameV"; ?></td>
                                 <td style="text-align:center;"><?php echo "$dobV"; ?></td>
                                 <td style="text-align:center;"><?php echo "$unameV"; ?></td>
+                                <td style="text-align:center;"><?php echo "$statusV"; ?></td>
                                 <td style="text-align:center;"><?php echo " $facultyV"; ?></td>
                                 <td style="text-align:center;"><?php echo "$countryV"; ?></td>
                             </tr>

@@ -193,8 +193,8 @@
             if (!$sqldb->select_db('higherEducationdb')) {
                 die("not connected to database");
             }
-            $teacherQuery = "SELECT id,status FROM universityStatus ORDER BY id ASC";
-            if ($valsT = $sqldb->query($teacherQuery)) {
+            $statusQuery = "SELECT id,status FROM universityStatus ORDER BY id ASC";
+            if ($valsT = $sqldb->query($statusQuery)) {
             ?>
                 <div class="form-row">
                     <div class="form-group dropBox  form-control">
@@ -204,7 +204,6 @@
                             <select id="editable_Select_Uni" name="status" onChange = "editUniStat(<?php echo $id?>)">
                             <script>
                                 function editUniStat(id) {
-                                            console.log("bolayo");
                                             var myId = document.getElementById("editable_Select_Uni");
                                             
                                             var value = myId.options[myId.selectedIndex].value;

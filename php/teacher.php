@@ -118,6 +118,40 @@
                     <label for="university">University:</label><br>
                     <input type="text" name="university" placeholder="Enter University" class="form-control">
                 </div>
+                <div>
+                    <?php
+                    if (!$sqldb->select_db('higherEducationdb')) {
+                    die("not connected to database");
+                    }
+                    $statusQuery = "SELECT id,status FROM universityStatus ORDER BY id ASC";
+                    if ($valsT = $sqldb->query($statusQuery)) {
+                    ?>
+                        <div class="form-row">
+                            <div class="form-group dropBox  form-control">
+                                <?php
+                                if (mysqli_num_rows($valsT) > 0) {
+                                ?>
+                                    <select id="editable_Select_Uni" name="status" onChange = "editUniStat(<?php echo $id?>)">
+                                    <?php
+                                while ($vals_rowT = mysqli_fetch_assoc($valsT)) {
+                                ?>
+                                    <option value="<?php echo $vals_rowT['id'];?>" <?php 
+                                    // if ($vals_rowT['id'] == $statusT) 
+                                    // {
+                                    //     echo"selected";
+                                    // } 
+                                    ?>><?php echo $vals_rowT['status']; ?></option>
+                                <?php
+                                }
+                            }
+                        }
+                                ?>
+                                </select>
+                            </div>
+                        </div>
+
+                    
+                </div>
                 <div class="form-row2">
                     <input class="btn btn-success btn-lg active submitB" type="submit" name="search_students" value="Search" class="form-control">
                 </div>
