@@ -80,6 +80,14 @@
 		die("Couldn\'t create table recommendation");
 	}
 	
+	$createtable = "CREATE TABLE admin (username VARCHAR($name_len), password VARCHAR(255))";
+	if ($sqldb->query($createtable)){
+		echo "<p>Created table admin</p>";
+	}
+	else{
+		die("Couldn\'t create table admin");
+	}
+	
 	
 	
 	/*
