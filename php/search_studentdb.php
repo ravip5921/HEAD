@@ -79,10 +79,10 @@
         if ($country !== '') {
             $search_criterias_university[] = "`recommendation`.`country` = '$country'";
         }
-        if ($uniStatus !== '') {
-            $result = $sqldb->query("SELECT id FROM universityStatus WHERE status = '$uniStatus'");
-            $res = mysqli_fetch_assoc($result);
-            $uniStatus = $res['id'];
+        if ($uniStatus !== '' and $uniStatus!=='*') {
+            // $result = $sqldb->query("SELECT id FROM universityStatus WHERE status = '$uniStatus'");
+            // $res = mysqli_fetch_assoc($result);
+            // $uniStatus = $res['id'];
             $search_criterias_university[] = "`recommendation`.`uniastatus` = $uniStatus";
         }
 
